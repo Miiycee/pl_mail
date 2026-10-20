@@ -2,7 +2,7 @@
 #
 # encryption: ssl | starttls | none  (must match the form choice values)
 # domains:    used to auto-detect a preset from the email address the user types
-# note:       optional hint rendered under the dropdown (translation-free, short)
+# note:       optional hint rendered under the dropdown (translation key)
 presets:
 
     # ── Deutschland / DACH ────────────────────────────────────────────────
@@ -10,7 +10,7 @@ presets:
         name: GMX
         group: Deutschland
         domains: ['gmx.de', 'gmx.net', 'gmx.at', 'gmx.ch']
-        note: 'IMAP muss im GMX-Webinterface unter Einstellungen erst aktiviert werden.'
+        note: 'mail_preset_note.gmx'
         imap: { host: imap.gmx.net, port: 993, encryption: ssl }
         smtp: { host: mail.gmx.net, port: 587, encryption: starttls }
 
@@ -25,7 +25,7 @@ presets:
         name: WEB.DE
         group: Deutschland
         domains: ['web.de']
-        note: 'IMAP muss im WEB.DE-Webinterface erst freigeschaltet werden.'
+        note: 'mail_preset_note.web_de'
         imap: { host: imap.web.de, port: 993, encryption: ssl }
         smtp: { host: smtp.web.de, port: 587, encryption: starttls }
 
@@ -33,7 +33,7 @@ presets:
         name: Telekom / T-Online
         group: Deutschland
         domains: ['t-online.de', 'magenta.de']
-        note: 'Es wird ein separates E-Mail-Passwort benötigt, nicht das Telekom-Login.'
+        note: 'mail_preset_note.t_online'
         imap: { host: secureimap.t-online.de, port: 993, encryption: ssl }
         smtp: { host: securesmtp.t-online.de, port: 587, encryption: starttls }
 
@@ -98,7 +98,7 @@ presets:
         name: Hetzner (Konsole H)
         group: Hosting
         domains: []
-        note: 'Benutzername ist die vollständige E-Mail-Adresse.'
+        note: 'mail_preset_note.hetzner'
         imap: { host: mail.your-server.de, port: 993, encryption: ssl }
         smtp: { host: mail.your-server.de, port: 587, encryption: starttls }
 
@@ -120,7 +120,7 @@ presets:
         name: domainFACTORY
         group: Hosting
         domains: []
-        note: 'Gemeinsamer Mailpool-Host; Benutzername ist die volle Adresse.'
+        note: 'mail_preset_note.domainfactory'
         imap: { host: sslmailpool.ispgateway.de, port: 993, encryption: ssl }
         smtp: { host: sslmailpool.ispgateway.de, port: 465, encryption: ssl }
 
@@ -157,7 +157,7 @@ presets:
         name: Gmail
         group: International
         domains: ['gmail.com', 'googlemail.com']
-        note: 'Requires an app password; prefer the OAuth tab instead.'
+        note: 'mail_preset_note.gmail'
         imap: { host: imap.gmail.com, port: 993, encryption: ssl }
         smtp: { host: smtp.gmail.com, port: 587, encryption: starttls }
 
@@ -165,7 +165,7 @@ presets:
         name: Outlook.com / Hotmail
         group: International
         domains: ['outlook.com', 'outlook.de', 'hotmail.com', 'hotmail.de', 'live.com', 'live.de', 'msn.com']
-        note: 'Microsoft has disabled basic auth for most tenants — use the OAuth tab.'
+        note: 'mail_preset_note.outlook'
         imap: { host: outlook.office365.com, port: 993, encryption: ssl }
         smtp: { host: smtp-mail.outlook.com, port: 587, encryption: starttls }
 
@@ -173,7 +173,7 @@ presets:
         name: iCloud Mail
         group: International
         domains: ['icloud.com', 'me.com', 'mac.com']
-        note: 'Requires an app-specific password.'
+        note: 'mail_preset_note.icloud'
         imap: { host: imap.mail.me.com, port: 993, encryption: ssl }
         smtp: { host: smtp.mail.me.com, port: 587, encryption: starttls }
 
@@ -181,7 +181,7 @@ presets:
         name: Yahoo Mail
         group: International
         domains: ['yahoo.com', 'yahoo.de', 'ymail.com', 'rocketmail.com']
-        note: 'Requires an app password.'
+        note: 'mail_preset_note.app_password'
         imap: { host: imap.mail.yahoo.com, port: 993, encryption: ssl }
         smtp: { host: smtp.mail.yahoo.com, port: 465, encryption: ssl }
 
@@ -204,7 +204,7 @@ presets:
         name: Proton Mail (Bridge)
         group: International
         domains: ['proton.me', 'protonmail.com', 'pm.me']
-        note: 'Only works with Proton Mail Bridge running on the same host.'
+        note: 'mail_preset_note.protonmail_bridge'
         imap: { host: 127.0.0.1, port: 1143, encryption: none }
         smtp: { host: 127.0.0.1, port: 1025, encryption: starttls }
 
