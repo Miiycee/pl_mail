@@ -35,7 +35,24 @@ account:
         oauth: OAuth
     test:
         button: 测试连接
+        hint:
+            expects_ssl: '端口 %port% 通常需要隐式 SSL/TLS。'
+            expects_starttls: '端口 %port% 通常需要 STARTTLS，而不是隐式 SSL/TLS。'
+            no_encryption: '当前加密方式为“无”，但大多数服务商要求使用 SSL/TLS 或 STARTTLS。'
         imap: IMAP
+        request_failed: '测试未能执行（%status%）。'
+        result:
+            auth: '服务器拒绝了用户名或密码。'
+            failed: '连接失败，请检查主机、端口和加密方式。'
+            host_invalid: '请输入主机名或 IP 地址，不要包含斜杠、问号或 @。'
+            imap_ok: '已连接，可见 %count% 个文件夹。'
+            missing_fields: '请先至少填写邮箱地址和 IMAP 主机。'
+            missing_password: '没有可用于测试的密码。请在上方输入密码；编辑账户时留空表示保留已保存的密码，只有保存账户后测试才能使用它。'
+            smtp_none: '尚未配置 SMTP 主机，此账户无法发送邮件。'
+            smtp_ok: '已连接并登录。'
+            timeout: '服务器未能及时响应。请检查主机、端口及防火墙设置。'
+            tls: '安全连接失败，可能是证书未被接受，或加密方式与端口不匹配。'
+            unreachable: '无法连接服务器，请检查主机名和端口。'
         smtp: SMTP
     updated: 账户已更新
 
@@ -1978,4 +1995,134 @@ demo:
         privacy: '访问演示时会创建不包含个人数据的临时账户。账户及其中输入的内容会一并删除。服务器日志会按常规运维需要记录 IP 地址，并定期轮换。'
         source_title: '源代码'
         source: 'plMail 是依据 AGPL-3.0 许可发布的自由软件：'
+
+dnd:
+    dragging: '正在拖动 %count% 个会话'
+
+integration:
+    save_failed: '保存失败：%reason%'
+    saved_to: '已保存到 %name%'
+    destination:
+        album_name: '相册名称'
+        choose_album: '为 %file% 选择相册'
+        choose_folder: '为 %file% 选择文件夹'
+        choose_for_filter: '选择此筛选规则保存附件的位置。'
+        choose_here: '选择此文件夹'
+        choose_tag: '为 %file% 选择标签'
+        choose_this: '选择'
+        create: '创建'
+        folder_name: '文件夹名称'
+        library: '图库（无相册）'
+        new_album: '新建相册'
+        new_folder: '新建文件夹'
+        new_tag: '新建标签'
+        no_albums: '尚无相册。'
+        no_subfolders: '此处没有子文件夹。'
+        no_tag: '无标签'
+        no_tags: '尚无标签。'
+        save_here: '保存到此处'
+        start_over: '重新开始'
+        tag_name: '标签名称'
+    picker:
+        attach: '添加附件'
+        attach_from: '从 %name% 添加'
+        attach_from_service: '从服务中添加'
+        empty: '此文件夹为空。'
+        link: '链接'
+        more: '显示更多'
+        no_results: '没有找到“%query%”。'
+        not_an_image: '不是图片'
+        search: '搜索'
+        search_placeholder:
+            dropbox: '搜索 Dropbox'
+            googleDrive: '搜索 Google 云端硬盘'
+            googlePhotos: '搜索 Google 相册'
+            immich: '描述照片，例如“日落时的海滩”'
+            nextcloud: '搜索 Nextcloud'
+            oneDrive: '搜索 OneDrive'
+            paperless: '搜索标题和扫描文本'
+        status:
+            attach_failed: '添加失败'
+            attaching: '正在添加…'
+            load_failed: '无法加载更多内容'
+            loading: '正在加载…'
+            nothing_selected: '未选择任何内容'
+            save_draft_first: '请先保存草稿'
+            skipped: '已跳过：%files%'
+        timeline: '跳转到日期'
+        too_big: '附件过大'
+        use_as_avatar: '设为头像'
+
+mercure:
+    status:
+        connected: '实时更新已启用'
+        connecting: '正在重新连接实时更新…'
+        offline: '实时更新不可用，收件箱内容可能不是最新的'
+
+modal:
+    close: '关闭'
+    loading: '正在加载…'
+
+oauth:
+    error:
+        generic: '无法连接此账户，请重试。'
+        microsoft:
+            admin_consent_required: '你的组织要求管理员先批准 plMail，才能连接此账户。请联系 Microsoft 管理员授予访问权限。'
+            app_not_found: 'plMail 尚未在你的 Microsoft 组织中注册。'
+            bad_credentials: 'plMail 的 Microsoft 凭据无效或已过期。这是服务器配置问题，无法由你自行修复。'
+            blocked_by_policy: '你所在组织的安全策略阻止了此次登录。'
+            consent_declined: '连接已取消，因为未授予 plMail 访问权限。'
+            tenant_mismatch: '当前账户类型无法使用现有配置登录 plMail。请检查 MICROSOFT_OAUTH_TENANT 设置。'
+
+whats_new:
+    admin: '管理员须知'
+    also: '此版本中的其他更新'
+    changes: '{0}没有更改|{1}1 项更改|]1,Inf[ %count% 项更改'
+    changes_heading: '更改内容'
+    done: '完成'
+    feedback:
+        back: '返回更新内容'
+        error:
+            account: '请选择用于发送反馈的账户。'
+            empty: '请填写消息，或告诉我们 plMail 使用起来如何。'
+            screenshot: '无法附加截图。请取消勾选截图后重新发送。'
+            send: '邮件发送失败。你的文字仍然保留，请稍后重试。'
+            transport: '发送失败：服务器返回了 %status%，而不是 plMail 的响应。请尝试不附带截图重新发送，或联系此实例的管理员。'
+        from: '发送账户'
+        message:
+            label: '你的反馈'
+            placeholder: '你喜欢什么、缺少什么，或遇到了什么问题？'
+        nudge: '有什么喜欢的、希望改进的，或遇到故障的地方吗？'
+        rating:
+            better: '更好了'
+            label: '更新后，你觉得 plMail（可选）'
+            same: '和以前一样'
+            worse: '变差了'
+        screenshot:
+            failed: '无法截取页面，因此不会附加截图。'
+            label: '附上当前页面截图'
+            preview: '将要附加的截图'
+            taking: '正在截取屏幕…'
+        send: '发送反馈'
+        sent:
+            body: '副本已保存在“已发送”文件夹，回复会像普通邮件一样送达。'
+            title: '反馈已发送。'
+        title: '发送反馈'
+        where: '反馈将通过邮件发送至 %address%，并附带 plMail 版本信息。副本会保存在“已发送”文件夹。'
+    highlights: '重点更新'
+    menu:
+        label: '帮助与反馈'
+        unseen: '有尚未查看的发行说明'
+        version: 'plMail %version%'
+    missing: '此安装中没有发行说明。'
+    nav:
+        current: '当前版本'
+        history: '完整更新日志'
+        label: '版本发布'
+        new: '尚未查看'
+    quiet: '更新后不再显示此页面'
+    screenshot: '截图'
+    screenshot_close: '关闭截图'
+    screenshot_open: '查看完整尺寸截图'
+    title: '更新了什么'
 
