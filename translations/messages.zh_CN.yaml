@@ -336,31 +336,340 @@ nav:
     trash: 已删除
     settings: 设置
 
-settings:
-    heading: 设置
-    account: 账户
-    mail_accounts: 邮箱账户
-    security: 安全
-    appearance: 外观
-    language: 语言
 
+settings:
+    title: '设置'
+    nav:
+        accounts: '邮箱账户'
+        ai: 'AI 助手'
+        aliases: '发件地址'
+        app_passwords: '应用专用密码'
+        appearance: '外观'
+        calendar_behaviour: '日历行为'
+        calendars: '日历'
+        categories: '分类'
+        disposal: '邮件清理'
+        filters: '筛选规则'
+        general: '常规'
+        group:
+            access: '访问与安全'
+            calendar: '日历'
+            features: '功能'
+            mail: '邮件'
+            personal: '个人设置'
+        health: '账户健康状态'
+        images: '图片'
+        insights: '邮件洞察'
+        integrations: '集成服务'
+        labels: '标签'
+        notifications: '通知'
+        profile: '个人资料'
+        read_receipts: '已读回执'
+        reading_pane: '阅读窗格'
+        security: '安全'
+        sharing: '共享'
+        shortcuts: '键盘快捷键'
+        signature: '签名'
+        templates: '模板'
+    accounts:
+        heading: '邮箱账户'
+        subheading: '添加、编辑、启用或移除需要同步的邮箱。'
+        empty: '尚未添加账户。添加账户即可开始同步邮件。'
+        add: '添加账户'
+        edit: '编辑账户'
+        delete: '移除账户'
+        delete_confirm: '确定移除 %account%？此操作会永久删除此账户已同步的所有邮件，且无法撤销。'
+        enable: '启用账户'
+        disable: '停用账户'
+        make_primary: '设为默认账户'
+        primary: '默认账户'
+        primary_explained: '默认使用此账户发送新邮件。'
+        make_primary_explained: '默认从 %account% 发送新邮件'
+        reconnect: '重新连接'
+        reconnect_explained: '重新登录 %account%，以重新授予之前拒绝的权限或应用密码更改。'
+        password_help: '留空则保留当前密码。'
+        reorder: '拖动以调整顺序'
+        status:
+            active: '已启用'
+            disabled: '已停用'
+        type:
+            imap: 'IMAP'
+            oauth: '%provider%（OAuth）'
+        colour:
+            change: '更改 %account% 的颜色'
+            swatch:
+                '0': '橙色'
+                '1': '绿色'
+                '2': '蓝色'
+                '3': '紫色'
+                '4': '琥珀色'
+                '5': '粉色'
+                '6': '青绿色'
+                '7': '橄榄绿'
+    aliases:
+        heading: '邮箱地址'
+        subheading: '此账户用于发送和接收邮件的地址。'
+        add: '添加'
+        add_placeholder: '添加其他地址…'
+        empty: '尚未添加其他地址。'
+        make_primary: '设为主要地址'
+        primary: '主要地址'
+        enable: '启用'
+        disable: '停用'
+        delete: '移除'
+        refresh: '从服务商刷新'
+        name_for: '%alias% 的发件人名称'
+        name_placeholder: '发件人名称'
+        name_save: '保存名称'
+        catch_all:
+            add: '设为全域接收'
+            label: '全域接收域名'
+            placeholder: 'example.com'
+            remove: '移除 %domain%'
+            hint: '如果某个域名下的所有地址都会投递到此邮箱，可在此添加该域名。回复时会自动使用原邮件的收件地址，无需逐个添加地址。'
+    clock:
+        heading: '时钟'
+        subheading: '设置时间显示为 12 小时制或 24 小时制，以及当前时间的显示位置。只改变显示方式，不会改变存储的数据。'
+        label: '时间格式'
+        follow_language: '跟随语言（%sample%）'
+        option:
+            '12': '12 小时制（%sample%）'
+            '24': '24 小时制（%sample%）'
+        placement:
+            label: '显示时间的位置'
+            option:
+                topbar: '顶部栏的“即将发生”按钮'
+                brand: 'plMail 名称下方'
+                sidebar: '侧边栏底部'
+                off: '不显示'
+    appearance:
+        heading: '外观'
+        subheading: '在此统一调整主题、密度、字体和背景。'
+        reset: '恢复默认设置'
+        export: '导出主题'
+        import: '导入主题'
+        accent:
+            heading: '强调色'
+        background:
+            heading: '背景'
+            solid: '纯色'
+            theme: '使用主题默认背景'
+            upload: '上传图片'
+        density:
+            comfortable: '宽松'
+            compact: '紧凑'
+            cosy: '舒适'
+            follow: '跟随全局设置'
+            heading: '界面密度'
+            subheading: '调整每一行占用的空间，可统一设置，也可为不同区域单独设置。'
+            surface:
+                list: '邮件列表'
+                reading: '阅读窗格'
+                sidebar: '侧边栏'
+        motion:
+            full: '完整动画'
+            heading: '动画效果'
+            minimal: '简化动画'
+            none: '关闭动画'
+            reduced: '如果系统要求减少动画，plMail 会优先遵循系统设置。'
+            subheading: '控制界面元素出现时的动画效果。简化动画只淡入淡出，不移动元素。'
+        layout:
+            boxed: '卡片式'
+            flat: '平面式'
+            heading: '布局'
+            subheading: '设置界面的整体框架。卡片式会将每个区域显示为卡片；平面式让顶部栏和侧边栏直接融入背景。'
+        list:
+            heading: '邮件列表'
+            accountCorner: '显示账户颜色角标'
+            accountCornerHint: '在邮件行角落显示彩色三角形，标识邮件所属账户。仅在列表混合显示多个账户时出现。'
+            listAvatars: '发件人头像圆点'
+            listAvatarsHint: '显示带有发件人首字母的彩色圆圈。关闭后会显示普通圆圈，因为该位置也用于行选择框。'
+            tabUnreadCount: '收件箱分类标签显示未读数'
+            tabUnreadCountHint: '显示每个分类中的未读会话数量。各分类未读数之和对应侧边栏收件箱徽标；“新邮件”提示单独显示。'
+            previewLines: '预览行数'
+            previewLines0: '不显示'
+            previewLines1: '一行'
+            previewLines2: '两行'
+            subheading: '设置邮件列表每一行显示的内容。'
+            unread:
+                standard: '标准'
+                strong: '醒目'
+                subtle: '低调'
+            unreadEmphasis: '未读邮件样式'
+        main:
+            heading: '主内容区域'
+            matchGlass: '跟随玻璃效果透明度'
+            subheading: '独立设置主内容区域的色调和透明度，不影响侧边栏。'
+            tint: '背景色调'
+        text:
+            autoDerive: '自动生成'
+            color: '文字颜色'
+            faint: '更淡'
+            heading: '文字'
+            muted: '次要文字'
+            subheading: '调整文字颜色，以便在当前背景下更清晰易读。'
+        theme:
+            dark: '深色'
+            dusk: '暮色'
+            heading: '主题'
+            more: '更多主题'
+            light: '浅色'
+            nord: 'Nord'
+            paper: '纸张'
+            solar: 'Solar'
+            subheading: '设置整个界面的配色方案。'
+            system: '跟随系统'
+        typography:
+            family: '字体'
+            font:
+                grotesk: '无衬线字体'
+                monospace: '等宽字体'
+                serif: '衬线字体'
+                system: '系统字体'
+            heading: '排版'
+            scale: '文字大小'
+            scaleHint: '适用于整个界面。写邮件窗口使用单独的字体和字号，这些设置会随邮件发送。'
+            subheading: '设置界面使用的字体和字号。'
     notifications:
-        heading: 浏览器与邮件通知
-        subheading: 管理此设备的浏览器推送，以及新邮件的外部通知渠道
-        this_device: 此设备
-        state_on: 已启用
-        state_off: 已关闭
-        state_pending: 正在检查…
-        state_working: 正在处理…
-        state_denied: 浏览器通知权限已拒绝
-        state_error: 通知状态异常
-        state_unsupported: 此浏览器不支持推送
-        state_unconfigured: 尚未配置推送服务
-        state_unknown: 状态未知
-        toggle: 启用通知
-        toggle_off: 关闭通知
-        unconfigured: 尚未配置 VAPID 公钥
-        ios_hint: iPhone 和 iPad 通常需要先将网站添加到主屏幕，再启用推送。
+        devices:
+            empty: '尚未注册设备。启用上方通知后，此浏览器会注册；手机应用会自行注册。'
+            heading: '已注册设备'
+            never_delivered: '尚未发送'
+            outcome:
+                accepted: '已送达'
+                failed: '失败'
+                skipped: '未发送'
+                subscription-destroyed: '已移除'
+            remove: '移除'
+            remove_confirm: '移除 %device%？系统将停止向其发送通知。设备本身不会卸载或关闭通知；如果应用仍需要通知，下次运行时会重新注册。'
+            removed: '设备已移除，系统不会再向其发送通知。如果应用仍需要通知，会自动重新注册。'
+            transport:
+                fcm: 'Firebase'
+                webpush: 'Web 推送'
+            unverified: '未验证'
+            verified: '已验证'
+        heading: '通知'
+        ios_hint: '在 iPhone 和 iPad 上，需要先用 Safari 打开 plMail，点“分享”并选择“添加到主屏幕”，然后再启用通知。'
+        state_denied: '浏览器设置已阻止通知。请允许此网站发送通知，然后重试。'
+        state_error: '发生错误，请重试。'
+        state_off: '已关闭 — 此设备不会收到通知。'
+        state_on: '已启用 — 此设备会收到新邮件通知。'
+        state_pending: '正在等待此设备确认…'
+        state_unconfigured: '此服务器尚未配置推送服务。'
+        state_unknown: '正在检查…'
+        state_unsupported: '此浏览器不支持接收通知。在 iPhone 和 iPad 上，请先将 plMail 添加到主屏幕。'
+        state_working: '正在处理…'
+        subheading: '即使 plMail 已关闭，也能在此设备上收到新邮件通知。'
+        this_device: '此设备'
+        toggle: '启用通知'
+        toggle_off: '关闭通知'
+        unconfigured: '此服务器尚未配置推送 — 未设置 VAPID 密钥。请运行 bin/console app:push:generate-vapid-keys。'
+    password:
+        field:
+            current: '当前密码'
+            new: '新密码'
+            new_help: '至少 %count% 个字符。除此之外没有其他要求；容易记住的长密码比难记的短密码更好。'
+            repeat: '再次输入新密码'
+        flash:
+            changed: '密码已更改。你在其他设备上选择的“保持登录”状态将失效，需要重新登录。'
+            refused: '密码未更改，请查看输入框下方的提示。'
+        heading: '密码'
+        remember_me_note: '更改密码后，除当前浏览器外，其他已记住登录状态的浏览器都会退出。这有助于在设备丢失时保护账户。'
+        subheading: '用于登录的密码。只有你本人可以更改，管理员也无法替你设置。'
+        submit: '更改密码'
+    reading_pane:
+        heading: '阅读窗格'
+        hint: '关闭时，邮件列表和邮件正文会依次显示。选择“右侧”后，窗口足够宽时正文会显示在列表旁边；可拖动分隔线调整两侧宽度。'
+        label: '打开邮件的显示位置'
+        off: '关闭'
+        right: '右侧'
+        subheading: '设置打开会话时，是替换邮件列表显示，还是在列表旁边显示。'
+    security:
+        codes:
+            copy: '复制恢复代码'
+            copy_now: '立即保存恢复代码'
+            copy_now_hint: '这些代码只会显示这一次。请保存到不依赖手机也能访问的位置，例如密码管理器或纸张；每个代码只能使用一次。'
+            heading: '恢复代码'
+            hint: '如果手机丢失，可以使用恢复代码重新登录。生成新代码会使旧代码全部失效。'
+            regenerate: '生成新的恢复代码'
+            remaining: '剩余 %count% 个未使用'
+        confirm_with_code: '输入验证器应用中的验证码'
+        devices:
+            empty: '当前没有受信任设备。每次登录时都需要输入验证码。'
+            expires: '到期时间：%date%'
+            heading: '受信任设备'
+            hint: '这些设备在 30 天内可跳过验证码。撤销信任后会立即生效，并在下次加载页面时要求输入验证码。'
+            last_used: '上次使用：%date%，IP：%ip%'
+            revoke: '撤销信任'
+            revoke_all: '撤销所有受信任设备'
+            revoke_all_confirm: '所有受信任设备下次登录时都需要验证码，包括当前设备。是否继续？'
+            revoke_confirm: '不再信任 %name%？该设备下次登录时需要验证码。'
+            this_device: '此设备'
+        disable:
+            confirm: '关闭后，你的账户将仅由密码保护。是否继续？'
+            heading: '关闭双重验证'
+            hint: '这会删除恢复代码，并取消所有受信任设备。'
+            submit: '关闭'
+        enable: '设置双重验证'
+        enrol:
+            cancel: '取消'
+            heading: '设置双重验证'
+            manual_copy: '复制设置密钥'
+            manual_toggle: '无法扫描？改为手动输入密钥'
+            qr_alt: '用于设置验证器应用的二维码'
+            step_app: '如果尚未安装验证器应用，请先安装。Google Authenticator、Aegis、1Password 和 Bitwarden 均可使用。'
+            step_confirm: '输入验证器应用当前显示的六位验证码。'
+            step_scan: '使用验证器应用扫描此二维码。'
+            submit: '确认'
+        heading: '双重验证'
+        pitch: '你的邮箱账户尤其值得保护：任何能访问邮箱的人都可能通过重置邮件修改其他账户的密码。启用第二重验证后，仅窃取密码不足以登录。'
+        status:
+            off: '双重验证已关闭'
+            on: '双重验证已启用'
+            on_since: '启用时间：%date%'
+        subheading: '设置登录时如何证明是你本人。'
+    sharing:
+        heading: '共享'
+        subheading: '创建日历共享链接，让没有账户的人查看部分日历或预约可用时段。'
+    shortcuts:
+        heading: '键盘快捷键'
+        hint: '按 c 写邮件、按 e 归档、按 j 和 k 浏览列表。输入文字时快捷键不会触发，操作也可以像其他邮件操作一样撤销。'
+        label: '快捷键'
+        off: '关闭'
+        on: '启用'
+        show: '显示快捷键'
+        subheading: '用单个按键快速完成常用操作。'
+    signature:
+        for_alias: '%alias% 的签名'
+        heading: '签名'
+        hint: '签名会添加到每封新邮件底部，并位于引用回复内容上方。'
+        label: '签名'
+        overriding: '此地址已有单独的签名，请在下方编辑。'
+        per_address:
+            count: '拥有独立签名的地址数量：%number%'
+            disclosure: '为部分地址使用不同的签名'
+            inherits: '使用账户签名。'
+            override: '使用其他签名'
+            override_for: '为 %alias% 设置独立签名'
+            revert: '恢复使用账户签名'
+            revert_for: '让 %alias% 恢复使用账户签名'
+            signs_with_nothing: '签名为空，此地址不会添加签名。'
+        placeholder: '尚未设置签名'
+        reverted: '已恢复使用账户签名。'
+        save: '保存签名'
+        saved: '已保存。'
+        source:
+            clean: '没有移除任何内容。'
+            embedded: '签名中已存储的图片：%count% 张。'
+            failed: '无法渲染签名，HTML 内容未更改。请重试。'
+            html: 'HTML'
+            label: '%label%（HTML）'
+            placeholder: '粘贴或输入签名的 HTML…'
+            remote: '仍以链接形式保留、无法存储的图片：%count% 张。这些图片不会在此显示，部分收件人需要先允许加载。'
+            removed: '以下内容已移除，因为邮件客户端无法显示或发送不安全：%items%。'
+            rendered: '渲染结果'
+            toggle: '签名视图'
+        subheading: '设置你撰写的邮件底部自动添加的内容。'
 
 mail_notification:
     card_heading: 邮件到达通知
