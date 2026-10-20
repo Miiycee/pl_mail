@@ -23,10 +23,24 @@ final readonly class NewMailNotificationStep implements PostIngestStepInterface
 
         $byUser = [];
         foreach ($result->messages as $message) {
-            if (ArrivalPlace::Inbox !== $message->arrivedIn || null === $message->account->usr?->id) {
+            $user = $message->account->usr;
+            if (ArrivalPlace::Inbox !== $message->arrivedIn
+                || null === $user?->id
+                || true !== $user->getSetting('mail_notification.enabled', false)) {
                 continue;
             }
-            $userId = (int) $message->account->usr->id;
+
+            $webhookReady = true === $user->getSetting('mail_notification.webhook_enabled', false)
+                && '' !== trim((string) $user->getSetting('mail_notification.webhook_url', ''));
+            $telegramReady = true === $user->getSetting('mail_notification.telegram_enabled', false)
+                && '' !== (string) $user->getSetting('mail_notification.telegram_token', '')
+                && '' !== trim((string) $user->getSetting('mail_notification.telegram_chat_id', ''));
+
+            if (false === $webhookReady && false === $telegramReady) {
+                continue;
+            }
+
+            $userId = (int) $user->id;
             $byUser[$userId][] = (int) $message->id;
         }
 
