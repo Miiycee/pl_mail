@@ -97,7 +97,7 @@ final readonly class MailNotificationSender
             } catch (\Throwable $e) {
                 $results['webhook'] = 'failed';
                 $this->logger->warning('Mail notification webhook failed', [
-                    'userId' => $user->id, 'error' => $e->getMessage(),
+                    'userId' => $user->id, 'errorClass' => $e::class,
                 ]);
             }
         } elseif ($webhookEnabled) {
@@ -140,7 +140,7 @@ final readonly class MailNotificationSender
             } catch (\Throwable $e) {
                 $results['telegram'] = 'failed';
                 $this->logger->warning('Telegram mail notification failed', [
-                    'userId' => $user->id, 'error' => $e->getMessage(),
+                    'userId' => $user->id, 'errorClass' => $e::class,
                 ]);
             }
         } elseif ($telegramEnabled) {
