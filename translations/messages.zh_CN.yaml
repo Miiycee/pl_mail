@@ -1826,6 +1826,117 @@ settings:
         clear: '清除'
         remove: '移除签名'
 
+    health:
+        awaiting:
+            calendar_resync: '同步已启动，正在等待结果。完成后，此卡片会立即显示处理结果。'
+        confirm:
+            destructive: '这会永久丢弃等待中的任务。任务不会重试，也无法恢复。是否继续？'
+        fact:
+            granted_at: '登录时间'
+            last_full_resync: '完整重新列出邮箱（%count% 次）'
+            never: '从未'
+            never_delivered: '从未收到通知'
+            never_run: '没有运行记录'
+            not_recorded: '未记录'
+            not_registered: '未注册'
+            push_expires: '注册过期时间'
+            push_last_delivered: '上次收到通知'
+            push_last_renewal: '上次续期运行时间'
+        flash:
+            calendar_resync: '已请求同步 %calendar%。任务正在后台运行，完成后下方卡片会显示结果。'
+            push_repair_failed: '无法为 %account% 重新注册即时投递。账户仍会按计划检查邮件，因此邮件仍会正常到达。下方卡片会显示已知情况。'
+            push_repaired: '已为 %account% 重新注册即时投递。'
+            queue_discarded: '已丢弃 %count% 个已放弃的后台任务。'
+            queue_retried: '已将 %count% 个已放弃的后台任务重新加入队列。'
+        heading: '账户健康状态'
+        healthy:
+            body: '所有账户均已登录，日历正在同步，也没有等待你处理的问题。如果邮件停止到达，可返回设置列表中的“账户健康状态”，查看此页面给出的原因。'
+            title: '一切运行正常'
+        issue:
+            account_reconnect:
+                body: '此账户已停止接收新邮件，依赖它的日历同步、到达时执行的筛选规则以及从此地址发送邮件等功能也会停止。已下载的邮件安全保留。密码更改、启用双重验证，或在服务商安全页面撤销登录授权，都可能导致此问题。'
+                title: '%account% 需要重新登录'
+            account_grant_weekly_expiry:
+                body: '邮件仍在到达，但此账户上次登录授权在 %days% 天后被 Google 停止接受，而当前授权也已接近相同时间，因此很可能在一两天内再次失效。通常这是因为 Google OAuth 同意屏幕仍处于“测试”状态，该状态下签发的刷新令牌约一周后过期。重新登录只能再延长一周，无法根治。请在 Google Cloud 控制台将同意屏幕的发布状态改为“正式发布”。正式发布不等于完成验证；未验证应用仍可使用，只是首次登录时会显示警告。如果你的应用并未处于测试状态，可忽略此提示，可能是其他原因提前结束了授权。'
+                title: '%account% 可能在一两天内需要重新登录'
+            account_reconnect_weekly:
+                body: '此账户已停止接收新邮件，依赖它的日历同步、到达时执行的筛选规则和未读计数也会停止。已下载的邮件仍然安全。如果此次授权持续了 %days% 天，这符合 Google 对仍处于“测试”状态的 OAuth 应用的处理方式：刷新令牌约一周后过期。如果是这种情况，重新登录会暂时恢复邮件同步，但下周还会再次发生。请在 Google Cloud 控制台将同意屏幕的发布状态改为“正式发布”。正式发布不等于完成验证；未验证应用仍可使用，只是首次登录时会显示警告。'
+                title: '%account% 需要重新登录，且可能每周重复发生'
+            account_scope_missing:
+                body: '连接账户时没有授予 plMail 请求的全部权限，因此部分功能无法正常工作。例如日历可能无法同步；你在此处执行的标记已读、归档或加星标等操作，可能先在界面上显示成功，却被服务商拒绝并在下次同步时撤销。请重新连接账户并允许所有请求的权限。'
+                title: '%account% 未获得完整访问权限'
+            account_sync_failing:
+                body: '连续多次同步失败，因此此账户不再接收新邮件，依赖邮件到达的筛选规则和未读计数也会停止更新。已有邮件安全且未被更改。登录授权正常，问题可能在邮件服务器拒绝连接或无法访问；请检查服务器是否运行，以及主机、端口或密码是否发生变化。'
+                title: '%account% 持续同步失败'
+            server_alert:
+                body: '邮件服务器为你发送了以下通知，内容在此原样显示：“%alert%”。plMail 无法处理该问题，例如邮箱已满、密码即将过期或服务器即将迁移，都需要你或服务商处理。只有服务器不再发送此通知后，它才会消失。'
+                title: '%account% — 邮件服务器通知'
+            calendar_sync_failing:
+                body: '此日历已停止获取更新，因此目前显示的是上次同步成功时的数据。之后在其他位置新增或移动的事件尚未同步，而你在此处所做的修改也尚未发送出去。'
+                title: '%calendar% 已停止同步'
+            calendars_blocked:
+                body: '这些日历因与上方卡片相同的原因全部停止同步，修复上方问题即可一并恢复。它们仍显示上次正常工作时的数据，没有任何内容被删除。'
+                title: '%count% 个日历未同步：%calendars%'
+            integration_reconnect:
+                body: '重新连接 %connection% 之前，无法将附件保存到该服务，也无法从中添加文件。邮件本身不受影响，这只是与该服务的连接失效。服务中已有的数据未被更改。'
+                title: '%connection% 需要重新连接'
+            integration_scope_missing:
+                body: '此连接本身可用，但连接时没有授予 plMail 请求的全部权限，因此部分功能无法工作。例如浏览内容可能为空，但保存仍然成功，反之亦然。请重新连接并允许所有请求的权限。'
+                title: '%connection% 未获得完整访问权限'
+            push_degraded:
+                body: '推送注册仍有效且未过期，但有新邮件到达时没有收到相应通知。这说明通知可能在服务商与此安装之间丢失，而不是没有注册。对于 Gmail，请检查 Google Cloud 中的 Pub/Sub 订阅是否仍将主题转发到此地址。问题解决前，邮件仍会通过定时检查到达，只是会晚几分钟。'
+                title: '%account% 的即时投递已注册，但通知未到达'
+            push_lapsed:
+                body: '推送注册已过期且未续期，因此完全不会发送推送通知。系统每天会自动续期；如果下方显示上次运行已是几天前，可能是定时任务工作进程停止了，应优先修复该问题，而不是账户本身。邮件仍会通过定时检查到达，只是会晚几分钟。'
+                title: '%account% 的即时投递已过期'
+            queue_work_abandoned:
+                body: '%count% 个后台任务多次尝试仍然失败，因此被移出队列以停止反复重试。这通常是上方某个问题引起的后果，而不是独立故障。请先修复根本问题，再将任务重新加入队列。'
+                title: '%count% 个后台任务已被放弃'
+        outcome:
+            calendar_failed_again: '同步再次失败。下方显示这次返回的信息；同步确实运行了，只是没有成功。'
+            calendar_still_waiting: '同步已启动，但尚未返回结果。请稍后重试，或重新加载页面查看进度。'
+            calendar_synced: '同步成功，此日历已是最新状态。'
+        pending:
+            calendar_resync: '正在启动同步…'
+            push_resubscribe: '正在重新启用…'
+            queue_discard: '正在丢弃…'
+            queue_retry: '正在重新加入队列…'
+            reconnect: '正在跳转到 %provider%…'
+            reconnect_generic: '正在跳转到登录页面…'
+        repair:
+            calendar_resync:
+                label: '立即尝试同步'
+                promise: '立即重新同步此日历，并恢复正常同步计划。不会删除其中的任何内容。'
+            integration_grant:
+                label: '授予完整权限'
+                promise: '将带你重新登录 %connection%，并授予 plMail 请求的全部权限。不会更改服务中已有的数据。'
+            integration_reconnect:
+                label: '重新连接'
+                promise: '重新登录后恢复现有连接。你的筛选规则和已保存的目标位置会继续使用。'
+            push_resubscribe:
+                label: '重新启用即时投递'
+                promise: '为此账户重新注册即时投递。处理期间，邮件仍会按计划正常到达。'
+            queue_discard:
+                label: '丢弃这些任务'
+                promise: '永久丢弃这些未完成的任务，不再运行。此操作无法撤销，任务尚未完成的部分也不会完成。'
+            queue_retry:
+                label: '重新加入队列'
+                promise: '再次尝试运行这些任务。可以安全点击；如果再次失败，它们会重新显示在此处。'
+            grant_calendar:
+                label: '授予完整权限'
+                promise: '将带你以 %account% 身份重新登录服务商，并授予 plMail 请求的全部权限。邮件不会改变，也不会重新下载。'
+            reconnect_early:
+                label: '立即重新登录'
+                promise: '在当前授权到期前重新登录，避免服务中断。邮件、文件夹、标签、筛选规则、日历和设置都会保留。必须以 %account% 登录。这只能再延长一周，无法代替将 OAuth 同意屏幕设为正式发布。'
+            reconnect:
+                label: '重新连接此账户'
+                promise: '重新登录后将新授权应用到同一个账户。邮件、文件夹、标签、筛选规则、日历和设置都会保留，不会重新下载或删除内容。必须以 %account% 登录；如果选择其他邮箱地址，系统会拒绝而不会替换当前账户。'
+        reconnect:
+            done: '%account% 已重新连接。邮件和日历同步会在接下来几分钟内恢复。'
+            wrong_account: '你登录的是 %actual%，但当前账户是 %expected%。没有进行任何更改。请先在服务商处退出 %actual%，然后重试。若直接替换地址，会导致不同邮箱的数据混合。'
+        subheading: '查看停止工作的功能、对邮件的影响，以及解决问题所需的最小操作。'
+        technical_detail: '技术详情'
+
     notifications:
         devices:
             empty: '尚未注册设备。启用上方通知后，此浏览器会注册；手机应用会自行注册。'
