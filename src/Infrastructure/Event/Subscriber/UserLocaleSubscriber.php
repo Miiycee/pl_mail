@@ -54,7 +54,8 @@ final class UserLocaleSubscriber implements EventSubscriberInterface
         } else {
             // An explicit language link on the login page wins, then the last
             // chosen language, then the browser preference.
-            $locale = AppLocale::tryFromRequest($request->query->get('locale'));
+            $requestedLocale = $request->query->get('locale');
+            $locale = AppLocale::tryFromRequest(is_string($requestedLocale) ? $requestedLocale : null);
 
             if (null === $locale) {
                 [, $stored] = AppearanceCookieSubscriber::read(
