@@ -8,7 +8,7 @@ Outlook — and read them side by side in one inbox, on a server you own.
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white)
 ![License](https://img.shields.io/badge/license-AGPL--3.0-green)
 
-### 📖 [Read the handbook →](https://karatektus.github.io/pl_mail/docs/)
+### 📖 [Read the handbook →](https://karatektus.github.io/pl_mail/docs/) · [简体中文 Docker 部署说明](docs/install/docker-zh_CN.md)
 
 Installing on Docker, Linux, WSL2, macOS or a NAS · every feature in detail · connecting Gmail and
 Outlook, with the exact permissions to tick · how the internals work.
@@ -99,13 +99,12 @@ provider doesn't.
 
 ## Install
 
-Images are published for `linux/amd64` and `linux/arm64`. Nothing to fill in first: the secrets are
-generated on first start, and the public address is asked for on the setup screen.
+This fork targets `linux/amd64` only. Docker Compose builds the application image from the checked-out source, so changes on this branch are included. Nothing to fill in first: the secrets are generated on first start, and the public address is asked for on the setup screen.
 
 ### Docker
 
 ```bash
-git clone https://github.com/karatektus/pl_mail.git
+git clone --branch feature/chinese-ui-notifications https://github.com/Miiycee/pl_mail.git
 cd pl_mail
 docker compose up -d
 ```
