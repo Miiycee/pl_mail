@@ -32,8 +32,30 @@ final readonly class NewMailNotificationMessageHandler
             return;
         }
 
+        $webhookReady = true === $user->getSetting('mail_notification.webhook_enabled', false)
+            && '' !== trim((string) $user->getSetting('mail_notification.webhook_url', ''));
+        $telegramReady = true === $user->getSetting('mail_notification.telegram_enabled', false)
+            && '' !== (string) $user->getSetting('mail_notification.telegram_token', '')
+            && '' !== trim((string) $user->getSetting('mail_notification.telegram_chat_id', ''));
+
+        if (false === $webhookReady && false === $telegramReady) {
+            return;
+        }
+
+        // Keep a bounded recent-ID ledger in the user's existing JSON settings.
+        // Mark before the external request: if the queue retries after a worker
+        // interruption, an already-attempted message is not sent twice. This is
+        // intentionally at-most-once; remote HTTP delivery cannot be made
+        // exactly-once without cooperation from the receiver.
+        $processed = $user->getSetting('mail_notification.recent_message_ids', []);
+        $processed = is_array($processed) ? array_map('intval', $processed) : [];
         $repository = $this->em->getRepository(Message::class);
-        foreach (array_values(array_unique($job->messageIds)) as $id) {
+
+        foreach (array_values(array_unique(array_map('intval', $job->messageIds))) as $id) {
+            if (in_array($id, $processed, true)) {
+                continue;
+            }
+
             $message = $repository->find($id);
             if (!$message instanceof Message
                 || $message->account->usr?->id !== $user->id
@@ -41,12 +63,17 @@ final readonly class NewMailNotificationMessageHandler
                 continue;
             }
 
+            $processed[] = $id;
+            $processed = array_slice(array_values(array_unique($processed)), -500);
+            $user->setSetting('mail_notification.recent_message_ids', $processed);
+            $this->em->flush();
+
             try {
                 $this->sender->sendNewMail($user, $message);
             } catch (\Throwable $e) {
                 // Notification errors must never re-run a successful mail sync.
                 $this->logger->warning('New-mail notification processing failed', [
-                    'userId' => $user->id, 'messageId' => $id, 'error' => $e->getMessage(),
+                    'userId' => $user->id, 'messageId' => $id, 'errorClass' => $e::class,
                 ]);
             }
         }
