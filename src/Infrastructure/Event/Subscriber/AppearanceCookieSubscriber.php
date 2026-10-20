@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Event\Subscriber;
 
+use App\Domain\Enum\AppLocale;
 use App\Domain\Enum\Theme\Theme;
 use App\Entity\Embeddable\Appearance;
 use App\Entity\User\User;
@@ -59,13 +60,23 @@ final readonly class AppearanceCookieSubscriber
             return;
         }
 
+        $request = $event->getRequest();
         $user = $this->security->getUser();
 
-        if (false === $user instanceof User) {
-            return;
-        }
+        if ($user instanceof User) {
+            $wanted = $this->value($user->appearance->theme->value, $request->getLocale());
+        } else {
+            // The public login language links have no user record to update.
+            // Store their explicit choice in the same non-secret UI cookie.
+            $locale = AppLocale::tryFromRequest($request->query->get('locale'));
 
-        $wanted = $this->value($user->appearance->theme->value, $event->getRequest()->getLocale());
+            if (null === $locale) {
+                return;
+            }
+
+            [$theme] = self::read($request->cookies->get(self::COOKIE));
+            $wanted = ($theme ?? '') . '|' . $locale->value;
+        }
 
         // Only when it changed. Sending an identical Set-Cookie on every
         // response is noise on the wire and, more to the point, makes every
