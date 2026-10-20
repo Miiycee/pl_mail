@@ -1979,7 +1979,7 @@ demo:
         complaint: >-
             You also have the right to lodge a complaint with a data protection
             supervisory authority.
-        controller_intro: Responsible for the processing described here:
+        controller_intro: 'Responsible for the processing described here:'
         controller_title: Controller
         controller_unset: 'Not set. A privacy notice must name the controller — set these before making this instance public.'
         cookie_mercure: keeps the live-update connection open while you are signed in.
