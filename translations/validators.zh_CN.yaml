@@ -28,7 +28,7 @@ setup.install.password_too_short: 至少使用 {{ limit }} 个字符。此账户
 user.email_taken: 此邮箱地址已被使用；此实例中的每个邮箱地址只能属于一个用户。
 admin.ai.field.base_url_invalid: 地址必须以 http:// 或 https:// 开头。
 profile.avatar_wrong_type: 请使用 PNG、JPEG、GIF 或 WebP 图片。
-admin.ai.headers.malformed: 请每行填写一个请求头，格式为 Name: value。
+admin.ai.headers.malformed: '请每行填写一个请求头，格式为 Name: value。'
 admin.ai.headers.name: 请求头名称只能包含字母、数字和连字符，且不能为空。
 admin.ai.headers.value: 请求头值不能为空、不能包含换行符或其他控制字符，且最多为 4096 个字符。
 admin.ai.headers.reserved: 以下请求头由 plMail 自行设置，不能覆盖：Host、Content-Type、Content-Length、Connection 等。
