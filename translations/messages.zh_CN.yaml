@@ -313,10 +313,6 @@ admin:
                 hour: '1 小时'
                 week: '7 天'
 
-        hold:
-            details: "查看每封邮件"
-            measured: "最近 7 天：共有 %count% 封邮件等待处理，通常等待 %median% 秒（95% 的邮件在 %p95% 秒内完成）。其中 %timeout% 封因等待超时而未获得模型回复。"
-            no_data: "最近 7 天没有邮件等待模型处理，因此暂时没有可报告的延迟数据。"
     integrations:
         base_url_per_user: '每位用户分别填写自己的服务器地址。'
         base_url_pinned: '所有用户统一使用此地址'
