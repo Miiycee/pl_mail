@@ -29,6 +29,7 @@ final class CatalogueParityTest extends TestCase
         yield 'de' => ['de'];
         yield 'fr' => ['fr'];
         yield 'en_PI' => ['en_PI'];
+        yield 'zh_CN' => ['zh_CN'];
     }
 
     #[DataProvider('locales')]
