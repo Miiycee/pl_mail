@@ -1300,3 +1300,289 @@ templates:
         sender_name: '你的姓名'
         signature: '签名'
 
+onboarding:
+    action:
+        back: '上一步'
+        finish: '完成'
+        next: '下一步'
+        skip: '跳过此步骤'
+        skip_all: '跳过设置'
+    done:
+        body: '跳过的项目之后都可以在“设置”中找到，也可以随时从用户菜单重新运行此向导。'
+        cta: '进入邮箱'
+        heading: '设置完成'
+    aside:
+        account:
+            body: 'plMail 需要邮箱服务商的收件服务器（IMAP）和发件服务器（SMTP）地址。通常可以在服务商帮助页面的“IMAP 设置”中找到。'
+            heading: '在哪里可以找到这些信息？'
+            oauth: 'Gmail 和 Outlook 用户可以改为在“设置 → 邮箱账户”中使用登录按钮，无需填写服务器地址。'
+        admin_ai:
+            body: '填写网络中 Ollama 容器的地址，或任何兼容 OpenAI API 的服务地址，以及它提供的两个模型名称：一个用于写作，一个用于搜索。邮件只会发送到你配置的地址。'
+            heading: '需要准备什么'
+            skip_body: '如果暂时不需要此功能，可以将这些字段留空并继续。没有这些配置，plMail 仍然可以作为完整的邮件客户端使用；之后可在“管理 → AI”中再设置。'
+            skip_heading: '暂时不需要？'
+        admin_integrations:
+            body: '先在对应服务中注册 plMail，然后粘贴服务提供的凭据。'
+            heading: '如何配置'
+        admin_mail:
+            google:
+                heading: '配置 Gmail 登录'
+                step1: '打开 console.cloud.google.com 并创建项目，或选择现有项目。'
+                step2: '在“API 和服务 → 库”中启用 Gmail API。'
+                step3: '在 OAuth 同意屏幕中，如果使用 Workspace，请选择“内部”；否则选择“外部”，并填写应用名称和支持邮箱。'
+                step4: '在“凭据”中创建类型为“Web 应用”的 OAuth 客户端 ID。'
+                step5: '将下方的重定向 URI 添加到“已获授权的重定向 URI”，然后保存。'
+                step6: '将生成的客户端 ID 和客户端密钥复制到左侧字段。'
+            microsoft:
+                heading: '配置 Microsoft 登录'
+                step1: '打开 portal.azure.com，进入“Microsoft Entra ID → 应用注册 → 新注册”。'
+                step2: '选择允许登录的账户类型。默认租户设置为 common 时，通常应选择“任何组织目录中的账户和个人 Microsoft 账户”。'
+                step3: '将重定向 URI 类型设为 Web，并粘贴下方地址。'
+                step4: '注册后，将“应用程序（客户端）ID”复制到左侧字段。'
+                step5: '在“证书和密码”中创建新的客户端密码，并立即复制其“值”而不是 ID；该值只显示一次。'
+                step6: '在“API 权限”中添加以下 Microsoft Graph 委托权限：Mail.ReadWrite、Mail.Send、MailboxSettings.ReadWrite、Calendars.ReadWrite、User.Read 和 offline_access。缺少 MailboxSettings.ReadWrite 或 Calendars.ReadWrite 时仍可登录，但不会有邮件分类或日历；新增权限也不会自动更新已经签发的令牌。'
+        profile:
+            body: '收件人会在邮件的“发件人”一栏看到这些信息。之后可以随时更改。'
+            heading: '这些信息会显示在哪里'
+        security:
+            body: '如果有人拿到了你的邮箱密码，对方不仅能阅读邮件，还可能通过银行、域名注册商和云存储的“忘记密码”功能获取重置链接。'
+            body_two: '第二重验证是手机上每 30 秒变化一次的验证码。即使密码被盗，也不足以单独登录。'
+            heading: '为什么这项设置尤其重要'
+    account:
+        add: '添加此账户'
+        or_manual: '或者手动设置：'
+        sign_in_with: '使用 %provider% 登录'
+        add_another: '添加另一个账户'
+        cancel: '取消'
+    integrations:
+        cancel: '取消'
+        connect: '连接'
+        connected: '已连接'
+    progress: '第 %index% 步，共 %total% 步'
+    security:
+        body: '邮箱是其他账户的重要入口，因为密码重置链接都会发送到这里。增加手机验证码后，单靠被盗的密码就无法登录。'
+        done_body: '登录时需要输入验证器应用生成的验证码。请将恢复代码保存在不依赖手机也能访问的位置。'
+        done_heading: '双重验证已启用'
+        skip_hint: '之后可以在“设置 → 安全”中完成此项设置。'
+    switch_blocked: '未进行切换。请先修正下方字段，已填写的内容会保留。'
+    step:
+        account:
+            lead: '连接你日常使用的邮箱，plMail 就会开始同步邮件。'
+            title: '邮箱账户'
+        admin-ai:
+            intro: 'plMail 可以使用你自行运行或指定的语言模型，用于语义搜索、邮件分类和写作辅助。此功能完全可选，下面所有字段都可以留空。'
+            lead: '可选设置。如果不需要，请留空。'
+            title: '语言模型'
+        admin-integrations:
+            lead: '配置此安装中的所有用户可用于添加附件的服务凭据。'
+            title: '集成服务凭据'
+        admin-mail:
+            lead: '为整个安装配置一次 Gmail 和 Outlook 的登录凭据。'
+            title: '邮件服务商'
+        appearance:
+            lead: '自定义 plMail 的外观，之后也可以随时更改。'
+            title: '外观'
+        integrations:
+            lead: '连接存放文件和照片的服务。'
+            title: '连接你的服务'
+        profile:
+            lead: '设置显示在你发送邮件中的姓名。'
+            title: '个人资料'
+        security:
+            lead: '为你的账户启用可靠保护，整个过程大约需要一分钟。'
+            title: '保护账户'
+    title: '设置 plMail'
+
+profile:
+    avatar_current: '当前头像'
+    avatar_from:
+        not_an_image: '此文件不是 plMail 支持的图片格式，请选择 PNG、JPEG、GIF 或 WebP。'
+        too_large: '图片超过 4 MB，请选择更小的图片。'
+        unavailable: '服务未能提供该图片，请稍后重试。'
+        empty: '此服务中没有可显示的图片。'
+        heading: '或从已连接的服务中选择'
+    field:
+        avatar: '头像'
+        avatar_help: 'PNG、JPEG、GIF 或 WebP，最大 4 MB。'
+        avatar_remove: '移除当前头像'
+        name_first: '名'
+        name_last: '姓'
+
+reading_pane:
+    handle: '调整邮件窗格大小'
+    placeholder: '选择一个会话，即可在此阅读'
+
+request_error:
+    copy_reference: '复制错误编号'
+    server: '操作失败，服务器端发生错误。请稍后重试。'
+    not_found: '目标已不存在，可能已被移动或删除。'
+    refused: 'plMail 无法完成此操作。请重新加载页面后重试。'
+    offline: '无法连接 plMail，请检查网络连接后重试。'
+    reference: '参考编号：%id%'
+
+sync_now:
+    label: '立即同步'
+    syncing_one: '正在同步 1 个账户…'
+    syncing_other: '正在同步 %count% 个账户…'
+    still_running: '同步仍在后台进行。'
+    complete: '同步完成。'
+    session_expired: '登录会话已过期，请重新加载页面并重新登录。'
+
+pull_to_refresh:
+    pull: '下拉以同步'
+    release: '松开以同步'
+
+jobs:
+    button:
+        failed: '发生错误'
+        importing: '正在导入'
+        importing_percent: '正在导入 · %percent%%'
+        working: '处理中…'
+    heading: '后台任务'
+    import:
+        folder: '当前文件夹：%folder%'
+        heading: '正在导入 %account%'
+        newest_first: '优先导入最新邮件'
+        quota: 'Gmail 配额：本分钟约使用 %used% / %limit% 个单位'
+        quota_assumed: 'Gmail 配额：本分钟约使用 %used% / %limit% 个单位（Google 尚未公布限制，暂按此值估算）'
+        quota_paused: '已达到 Gmail 配额限制 · %seconds% 秒后继续'
+        quota_refused: 'Gmail 在每分钟约使用 %used% / %limit% 个单位时拒绝了请求'
+        rate: '每分钟约处理 %count% 封邮件'
+        remaining_hours: '预计还需 %hours% 小时 %minutes% 分钟'
+        remaining_minutes: '预计还需 %minutes% 分钟'
+        waiting: '等待继续'
+    started: '%action% 已开始，将在后台运行。'
+    failure:
+        abandoned: '任务中断：执行到一半时停止，已经完成的部分仍然保留。'
+    kind:
+        mark_read: '正在标记为已读'
+        mark_unread: '正在标记为未读'
+        archive: '正在归档'
+        trash: '正在移至回收站'
+        restore: '正在恢复'
+        snooze: '正在设置稍后提醒'
+        wake: '正在恢复提醒'
+        move_to: '正在移动'
+        purge: '正在永久删除'
+        reclassify: '正在重新分类近期邮件'
+        delete_label: '正在删除标签'
+    state:
+        done: '已完成 %count% 项'
+        failed: '失败'
+        queued: '等待中'
+
+label:
+    all_accounts: '所有账户'
+    color:
+        amber: '琥珀色'
+        blue: '蓝色'
+        gray: '灰色'
+        green: '绿色'
+        orange: '橙色'
+        pink: '粉色'
+        red: '红色'
+        teal: '青绿色'
+        violet: '紫色'
+    empty: '没有带此标签的会话。'
+    created: '标签已创建。'
+    delete:
+        already_running: '“%name%”正在删除。'
+        destination: '将邮件移动到'
+        destination_placeholder: '— 选择目标位置 —'
+        destination_required: '请选择邮件的目标位置。文件夹中仍有邮件时不能删除该文件夹。'
+        failed_destination_create: '邮件服务器无法创建目标文件夹 %name%，未移动或删除任何内容。'
+        failed_destination_gone: '所选邮件目标位置已不存在。请重新删除标签并选择其他位置。'
+        failed_new_mail: '点击删除后，又有新邮件进入该文件夹。请重新删除标签并选择邮件去向。'
+        failed_not_empty: '服务器上的文件夹“%name%”仍有邮件，因此未删除。请在邮件客户端中移动这些邮件后再试。'
+        failed_server: '邮件服务器无法删除“%name%”：%error%'
+        mail_count: '其中有 %count% 封邮件。删除文件夹前，会先将这些邮件移动到下方选择的位置。'
+        on_server: '这是邮件服务器上的文件夹，因此也会从服务器删除。'
+        still_importing: 'plMail 仍在从服务器导入“%name%”中的邮件。请等导入完成后再删除，以免遗漏邮件。'
+        title: '删除“%name%”'
+        waiting: '正在等待邮件服务器清空“%name%”后再删除。'
+    delete_confirm: '确定删除标签“%name%”？此操作会从所有账户中移除该标签，但邮件的其他标签会保留，邮件本身不会删除。'
+    delete_confirm_children: '确定删除“%name%”及其 %count% 个子标签？它们会从所有账户中移除，但邮件不会删除。'
+    deleted: '标签已删除。'
+    error:
+        duplicate: '此处已存在同名标签。仅更改大小写不会被视为不同名称。'
+    form:
+        color: '颜色'
+        delete: '删除标签'
+        delete_hint: '删除后，此标签及其所有子标签会从每个账户中移除。带有这些标签的邮件不会被删除，其他标签也会保留。'
+        edit_title: '编辑标签'
+        name: '名称'
+        no_color: '— 无 —'
+        no_parent: '— 顶级标签 —'
+        parent: '设为子标签'
+    menu:
+        create: '创建新标签'
+        empty: '尚无标签。'
+    updated: '标签已更新。'
+    visibility:
+        hidden: '标签已隐藏。'
+        shown: '标签已显示。'
+
+setup:
+    install:
+        field:
+            email: '邮箱地址'
+            email_help: '此地址将用于登录。'
+            locale: '语言'
+            name_first: '名'
+            name_last: '姓'
+            password: '密码'
+            password_repeat: '再次输入密码'
+            public_url: '公网访问地址'
+            public_url_help: '外部用户访问 plMail 的地址。Gmail 和 Outlook 会向此地址发送推送通知，因此它必须能从互联网访问，并且建议使用 HTTPS。之后仍可修改。'
+        footnote: '登录后，你可以添加邮箱及其他功能。'
+        heading: '创建账户'
+        lead: '这是此 plMail 实例的第一个账户，因此将获得完整的管理员权限。'
+        page_title: '设置 plMail'
+        restore_link: '先恢复配置备份。'
+        restore_prompt: '要从另一个 plMail 实例迁移吗？'
+        submit: '创建账户并登录'
+        tagline: '还没有人注册，现在就开始吧'
+    restore:
+        applied_lead: '配置已恢复。此备份不包含用户账户，因此此安装仍没有账户。请创建管理员账户以完成设置。如上方提示需要重启，可以等创建完成后再重启。'
+        applied_lead_users: '配置和用户已恢复：共 %count% 个账户，其中 %admins% 个管理员。请使用原密码登录，密码没有改变。'
+        back: '返回创建管理员账户'
+        continue: '继续 — 创建管理员账户'
+        footnote: '配置备份包含设置、凭据和用户账户，但不包含邮件、日历条目或联系人。'
+        heading: '恢复配置备份'
+        lead: '在创建任何内容之前，先将另一个 plMail 实例的设置、凭据和账户迁移到这里。上传备份文件并输入密码，plMail 会自动将其写入当前安装。'
+        nothing_to_do: '这里没有需要继续处理的事项。'
+        page_title: '恢复配置'
+        sign_in: '登录'
+        submit: '打开备份'
+
+demo:
+    bar:
+        title: '演示'
+        blurb: '这是临时邮箱，内容均为虚构，发送的邮件不会离开服务器。'
+        next: '接下来：%subject%'
+        receive: '接收邮件'
+    flash:
+        blocked: '演示环境已禁用连接真实邮箱。'
+    login:
+        blurb: '使用自己的临时邮箱体验 plMail，无需注册或提供邮箱地址。'
+        start: '开始演示'
+        disclaimer: '演示邮箱会在几小时后自动删除。'
+    unavailable:
+        title: '演示环境中不可用'
+        body: '此处已关闭真实邮箱连接。演示运行在你无法控制的服务器上，不应向陌生服务器输入邮箱密码。其他功能（主题、筛选、日历和写邮件）与自行部署的版本相同。'
+        dismiss: '返回演示'
+    impressum:
+        link: '法律声明'
+        title: '法律声明'
+        heading: '运营者信息'
+        operator: '运营者'
+        unset: '尚未设置。公开此实例前，必须在环境变量中填写真实运营者信息。'
+        contact: '联系方式'
+        contact_email: '邮箱：'
+        disclaimer_title: '关于此演示'
+        disclaimer: '这是 plMail 的演示版本。此处显示的邮箱、发件人和邮件均为虚构内容，并非真实通信。演示中撰写的邮件不会离开服务器，演示账户会在几小时后自动删除。'
+        privacy_title: '数据'
+        privacy: '访问演示时会创建不包含个人数据的临时账户。账户及其中输入的内容会一并删除。服务器日志会按常规运维需要记录 IP 地址，并定期轮换。'
+        source_title: '源代码'
+        source: 'plMail 是依据 AGPL-3.0 许可发布的自由软件：'
+
