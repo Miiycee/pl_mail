@@ -46,19 +46,32 @@ final class UserLocaleSubscriber implements EventSubscriberInterface
             return;
         }
 
+        $request = $event->getRequest();
         $user = $this->tokenStorage->getToken()?->getUser();
 
-        if (false === $user instanceof User) {
-            return;
-        }
+        if ($user instanceof User) {
+            $locale = AppLocale::tryFromRequest($user->locale);
+        } else {
+            // Logged-out pages (especially /login) have no user preference.
+            // Keep the last chosen locale when available; on a fresh visit,
+            // use the browser's preferred language instead of always showing
+            // the English default.
+            [, $stored] = AppearanceCookieSubscriber::read(
+                $request->cookies->get(AppearanceCookieSubscriber::COOKIE),
+            );
+            $locale = AppLocale::tryFromRequest($stored);
 
-        $locale = AppLocale::tryFromRequest($user->locale);
+            if (null === $locale) {
+                $preferred = $request->getPreferredLanguage(AppLocale::values());
+                $locale = AppLocale::tryFromRequest($preferred);
+            }
+        }
 
         if (null === $locale) {
             return;
         }
 
-        $event->getRequest()->setLocale($locale->value);
+        $request->setLocale($locale->value);
         $this->translator->setLocale($locale->value);
     }
 
