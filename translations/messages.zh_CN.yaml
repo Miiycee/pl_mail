@@ -40,6 +40,7 @@ account:
     updated: 账户已更新
 
 app:
+    name: 邮件
     cancel: 取消
     close: 关闭
     delete: 删除
@@ -74,20 +75,258 @@ calendar:
     today: 今天
     tomorrow: 明天
 
+
 compose:
-    send: 发送
-    sending: 正在发送…
-    subject: 主题
-    to: 收件人
+    ai:
+        accept: '插入'
+        disabled: '写作助手已关闭。'
+        discard: '丢弃'
+        disclaimer: '内容由模型生成，发送前请仔细检查。'
+        error:
+            not_pulled: '模型服务中没有该模型，请管理员先下载。'
+            refused: '模型服务拒绝了请求。'
+            timeout: '模型服务响应超时。'
+        failed: '无法发送请求。'
+        label: '帮我写'
+        no_answer: '模型服务没有返回内容。'
+        preview: '建议文本，尚未插入邮件'
+        prompt:
+            toggle: '指令'
+            title: '修改下次尝试使用的指令'
+            label: '希望采用的写作风格'
+            placeholder: '例如：控制在三句话以内，不要用“希望你一切都好”开头。'
+            retry: '按此要求重试'
+            hint: '仅对当前写作窗口有效。若要长期保存，请前往“设置 → AI”。'
+        rate: '%count% 个 token · 每秒 %rate% 个'
+        regenerate: '重试'
+        slow_hint: '模型加载后，间隔一段时间后的首次请求可能需要约 15 秒。'
+        state:
+            done: '已完成，尚未将内容插入邮件。'
+            sent: '已发送给模型…'
+            stopped: '已停止。可以保留已生成内容，也可以丢弃。'
+        stop: '停止'
+        task:
+            formal: '改为更正式的语气'
+            proofread: '检查拼写和语法'
+            reply: '起草回复'
+            shorten: '缩短内容'
+        timing: '模型加载 %load%s · %seconds%s 生成 %count% 个 token · 总计 %total%s'
+        working: '正在写作…'
+    open_failed:
+        dismiss: '关闭'
+        failed: '无法打开写邮件窗口，请重试。'
+        offline: '无法打开写邮件窗口，你似乎已离线。'
+        signed_out: '登录会话已过期，请重新加载页面并登录。'
+    no_account:
+        body: '请先添加邮箱账户，添加后即可立即撰写邮件。'
+        cta: '添加邮箱账户'
+        heading: '尚无邮箱账户'
+    font_family:
+        label: '字体'
+        monospace: '等宽字体'
+        sans: '无衬线字体'
+        serif: '衬线字体'
+    font_size:
+        huge: '特大'
+        label: '文字大小'
+        large: '大'
+        normal: '正常'
+        small: '小'
+    align:
+        center: '居中对齐'
+        left: '左对齐'
+        right: '右对齐'
+    confirm:
+        no_body: '邮件正文为空。'
+        no_subject: '邮件主题为空。'
+        send_anyway: '仍然发送吗？'
+        plain_text: '切换为纯文本会移除此邮件的所有格式，是否继续？'
+        open_variables: '模板中有占位符尚未填写。'
+    emoji:
+        activities: '活动'
+        animals_nature: '动物与自然'
+        categories: '分类'
+        custom: '自定义'
+        favorites: '常用'
+        flags: '旗帜'
+        food_drink: '食物与饮料'
+        loading: '正在加载…'
+        network_error: '无法加载表情符号。'
+        objects: '物品'
+        people_body: '人物与身体'
+        region: '表情符号选择器'
+        search: '搜索'
+        search_description: '出现结果后，按上/下方向键选择，再按 Enter 确认。'
+        search_results: '搜索结果'
+        skin_tone: '选择肤色（当前为 {skinTone}）'
+        skin_tone_description: '展开后，按上/下方向键选择，再按 Enter 确认。'
+        skin_tones: '肤色'
+        smileys_emotion: '笑脸与情绪'
+        symbols: '符号'
+        tone_dark: '深色'
+        tone_default: '默认'
+        tone_light: '浅色'
+        tone_medium: '中等'
+        tone_medium_dark: '中深色'
+        tone_medium_light: '中浅色'
+        travel_places: '旅行与地点'
+        unsupported: '此浏览器无法显示彩色表情符号。'
+    list:
+        ordered: '编号列表'
+        unordered: '项目符号列表'
+    priority:
+        high: '高'
+        label: '优先级'
+        low: '低'
+        none: '无优先级'
+        normal: '普通'
+    quote:
+        hide: '隐藏引用内容'
+        show: '显示引用内容'
+    schedule:
+        cancel: '取消定时发送'
+        confirm: '安排发送'
+        custom: '选择日期和时间'
+        error:
+            past: '所选时间已经过去。'
+            too_far: '邮件最多只能延迟 %days% 天发送。'
+            too_soon: '请选择至少晚于当前时间一分钟的时间。'
+            unreadable: '无法识别此日期和时间。'
+        heading: '稍后发送'
+        monday_morning: '周一上午'
+        scheduled_for: '计划发送时间'
+        timezone_hint: '时间采用 %zone% 时区。'
+        toast: '已安排在 %when% 发送'
+        toast_cancel: '取消发送'
+        tomorrow_afternoon: '明天下午'
+        tomorrow_morning: '明天上午'
+        when: '%date%，%time%'
+    status:
+        pending_many: '还需输入 %count% 个字符才能保存'
+        pending_one: '还需输入 1 个字符才能保存'
+        save_failed: '草稿保存失败'
+        saved: '草稿已保存'
+        saving: '正在保存…'
+        uploading: '正在上传…'
+    upload:
+        failed: '上传失败'
+        images_only: '正文中只能插入图片'
+        over_limit: '文件过大（上限 %limit% MB）'
+        post_too_large: '上传内容过大'
+        too_large: '文件过大'
+    add_bcc: '添加密送收件人'
+    add_cc: '添加抄送收件人'
+    attach: '添加附件'
+    attach_failed: '无法添加附件'
+    attach_remove_failed: '无法移除附件'
+    attach_too_large: '%name% 超过 %limit% MB'
+    bcc: '密送'
+    bold: '粗体'
+    cc: '抄送'
+    click_to_cancel: '点击取消'
+    continue_editing: '继续编辑'
+    discard: '删除草稿'
+    empty_draft: '（空草稿）'
+    encrypt: '加密邮件'
+    encrypt_unavailable: '暂时无法使用邮件加密功能。'
+    expand: '展开'
+    formatting: '格式选项'
+    forward: '转发'
+    from: '发件人'
+    image: '插入图片'
+    image_insert_failed: '无法将图片插入邮件正文'
+    indent: '增加缩进'
+    insert_emoji: '插入表情符号'
+    insert_link: '插入链接'
+    invalid_address: '“%address%”不是有效的邮箱地址'
+    italic: '斜体'
+    link:
+        add: '插入链接'
+        apply: '应用'
+        cancel: '取消'
+        change: '更改'
+        dialog: '链接'
+        edit: '编辑链接'
+        heading: '链接'
+        invalid: '请输入网址。'
+        open: '打开'
+        remove: '移除链接'
+        text_label: '显示文本'
+        text_placeholder: '用作链接的文字'
+        unsafe: '只能添加网页、邮件地址和电话号码链接。'
+        url_label: '网址'
+        url_placeholder: 'example.com'
+    minimize: '最小化'
+    more_fields: '显示发件人、抄送、密送和主题'
+    more_options: '更多选项'
+    new_message: '新邮件'
+    outdent: '减少缩进'
+    plain_text: '纯文本模式'
+    plain_warning:
+        cancel: '保留格式'
+        continue: '继续'
+        title: '移除格式？'
+    pop_out: '在独立窗口中撰写'
+    send_warning:
+        cancel: '继续编辑'
+        continue: '仍然发送'
+        title: '发送此邮件？'
+    read_receipt: '请求已读回执'
+    recipient_required: '发送前请至少添加一位收件人。'
+    redo: '重做'
+    reply: '回复'
+    reply_all: '回复全部'
+    save_and_close: '保存草稿并关闭'
+    send: '发送'
+    send_options: '发送选项'
+    sending: '正在发送…'
+    signature: '插入签名'
+    signature_none: '此地址尚未设置签名'
+    subject_label: '主题'
+    subject_placeholder: '主题'
+    text_color: '文字颜色'
+    to: '收件人'
+    underline: '下划线'
+    undo: '撤销'
+    body_placeholder: '撰写邮件…'
+    attachment_remove: '移除附件'
+    template:
+        all_accounts: '所有账户'
+        empty: '尚无模板。可在“设置”中创建模板，或将当前邮件保存为模板。'
+        failed: '无法加载该模板。'
+        insert: '插入模板'
+        loading: '正在加载模板…'
+        manage: '管理模板'
+        no_match: '没有名称匹配的模板。'
+        nothing_to_save: '当前没有可保存为模板的正文。'
+        save_draft: '将此邮件保存为模板'
+        saved: '已保存为模板“%name%”。可在设置中重命名或移动。'
+        search: '查找模板'
+        untitled: '未命名模板'
 
 inbox:
     heading: 收件箱
     empty: 暂无邮件
 
+
 login:
-    email: 邮箱地址
-    password: 密码
-    sign_in: 登录
+    form:
+        email: '邮箱地址'
+        forgot_password: '忘记密码？'
+        forgot_password_hint: '密码恢复需要在服务器控制台运行 bin/console app:user:2fa-disable，并由管理员设置新密码。'
+        password: '密码'
+        remember_me: '保持登录状态'
+        submit: '登录'
+    oidc:
+        button: '使用单点登录'
+        button_named: '使用 %provider% 登录'
+        or: '或'
+    page_title: '登录'
+    register:
+        coming_soon: '注册功能即将推出。'
+        link: '创建账户'
+        prompt: '还没有账户？'
+    tagline: '登录你的账户'
 
 nav:
     inbox: 收件箱
