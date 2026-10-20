@@ -1,0 +1,45 @@
+name: Feature branch checks
+
+on:
+  push:
+    branches:
+      - feature/chinese-ui-notifications
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+
+      - name: Lint notification PHP files
+        run: |
+          set -e
+          php -l src/Controller/Settings/MailNotificationController.php
+          php -l src/Controller/Settings/SettingsController.php
+          php -l src/Infrastructure/Messaging/Message/NewMailNotificationMessage.php
+          php -l src/Infrastructure/Messaging/Handler/NewMailNotificationMessageHandler.php
+          php -l src/Service/Mail/MailNotificationSender.php
+          php -l src/Service/Mail/PostIngest/NewMailNotificationStep.php
+
+      - name: Parse translation and Compose YAML
+        run: |
+          ruby -e 'require "yaml"; ARGV.each { |file| YAML.load_file(file, aliases: true); puts "OK: #{file}" }' \
+            config/packages/translation.yaml \
+            translations/messages.en.yaml \
+            translations/messages.zh_CN.yaml \
+            translations/security.zh_CN.yaml \
+            translations/validators.zh_CN.yaml \
+            compose.yaml
+
+      - name: Validate Docker Compose configuration
+        run: docker compose config --quiet
