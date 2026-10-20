@@ -68,7 +68,8 @@ final readonly class AppearanceCookieSubscriber
         } else {
             // The public login language links have no user record to update.
             // Store their explicit choice in the same non-secret UI cookie.
-            $locale = AppLocale::tryFromRequest($request->query->get('locale'));
+            $requestedLocale = $request->query->get('locale');
+            $locale = AppLocale::tryFromRequest(is_string($requestedLocale) ? $requestedLocale : null);
 
             if (null === $locale) {
                 return;
