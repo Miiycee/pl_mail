@@ -1,7 +1,11 @@
 # plMail on the published image: web, worker and Postgres.
 # Secrets are generated on first start; see docs/install/docker.md.
 
-x-app-image: &app-image ghcr.io/karatektus/pl_mail:latest
+x-app-image: &app-image plmail-custom:local
+x-app-build: &app-build
+  context: .
+  platforms:
+    - linux/amd64
 
 x-app-env: &app-env
   APP_ENV: prod
@@ -33,6 +37,8 @@ x-app-storage: &app-storage
 services:
   secrets-init:
     image: *app-image
+    build: *app-build
+    platform: linux/amd64
     restart: "no"
     entrypoint: ["generate-secrets"]
     environment:
@@ -45,6 +51,8 @@ services:
 
   php:
     image: *app-image
+    build: *app-build
+    platform: linux/amd64
     restart: unless-stopped
     environment:
       <<: *app-env
@@ -76,6 +84,8 @@ services:
 
   worker:
     image: *app-image
+    build: *app-build
+    platform: linux/amd64
     restart: unless-stopped
     command: php bin/console app:work
     init: true
@@ -103,6 +113,7 @@ services:
 
   database:
     image: postgres:${POSTGRES_VERSION:-18}-alpine
+    platform: linux/amd64
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-app}
       POSTGRES_USER: ${POSTGRES_USER:-app}
