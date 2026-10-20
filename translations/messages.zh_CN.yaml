@@ -658,9 +658,6 @@ admin:
             off:
                 name: '关闭'
                 hint: '不检查更新，也不会发送通知。'
-            'off':
-                name: "关闭"
-                hint: "不进行检查，也不会向任何地方发送数据。"
         state:
             available: '有可用更新'
             current: '已是最新版本'
@@ -668,7 +665,6 @@ admin:
             incomparable: '无法比较'
             off: '已关闭'
             unknown: '尚未检查'
-            'off': "已关闭"
         running: '当前安装'
         newest:
             releases: '最新正式版本'
@@ -855,8 +851,6 @@ admin:
             environment: '已启用，来自环境变量'
             off: '已关闭'
             on: '已启用'
-            'off': "已关闭"
-            'on': "已启用"
     tokens:
         empty: '尚无令牌刷新记录。'
         heading: 'OAuth 令牌健康状态'
@@ -1155,13 +1149,6 @@ calendar:
             '5': '周五'
             '6': '周六'
             '7': '周日'
-            1: "周一"
-            2: "周二"
-            3: "周三"
-            4: "周四"
-            5: "周五"
-            6: "周六"
-            7: "周日"
         your_email: '你的邮箱'
         your_email_help: '确认邮件和日历文件将发送到此地址。'
         your_name: '你的姓名'
@@ -1871,7 +1858,6 @@ settings:
                 brand: 'plMail 名称下方'
                 sidebar: '侧边栏底部'
                 off: '不显示'
-                'off': "不显示"
     appearance:
         heading: '外观'
         subheading: '在此统一调整主题、密度、字体和背景。'
@@ -2325,8 +2311,6 @@ settings:
         off: '关闭'
         on: '启用'
         subheading: '设置如何彻底删除邮件。'
-        'off': "关闭"
-        'on': "开启"
     images:
         always_show: '始终显示远程图片'
         always_show_hint: '无需询问，直接加载所有邮件中的外部图片。发件人可能因此知道你何时打开邮件，但看不到你的 IP 地址，因为图片仍通过 plMail 加载。垃圾邮件中的图片始终会被阻止。默认关闭。'
@@ -2334,8 +2318,6 @@ settings:
         off: '关闭'
         on: '启用'
         subheading: '控制是否需要先确认才能加载邮件中的外部图片。'
-        'off': "关闭"
-        'on': "开启"
     whats_new:
         heading: '更新内容'
         off: '关闭'
@@ -2343,8 +2325,6 @@ settings:
         show: '更新后显示更新内容'
         show_hint: '关闭后，更新完成时不会自动打开更新说明，顶部栏的问号图标也不会显示提示点。仍可从“帮助 → 更新内容”查看。'
         subheading: '设置 plMail 更新后显示的内容。'
-        'off': "关闭"
-        'on': "开启"
     categories:
         add: '添加'
         built_in: '内置'
@@ -2378,8 +2358,6 @@ settings:
             label: '每个账户单独显示标签页'
             off: '关闭'
             on: '启用'
-            'off': "关闭"
-            'on': "开启"
         again:
             button: '重新判断'
             hint: '助手会为每封邮件保留一次判断结果。模型、提示词或 plMail 版本变化后可重新判断。每封邮件都会消耗一次模型调用，因此仅处理最近的邮件。'
@@ -2405,8 +2383,6 @@ settings:
             label: '收件箱标签页'
             off: '单一列表'
             on: '标签页'
-            'off': "单一列表"
-            'on': "标签页"
     timezone:
         heading: '时区'
         subheading: '设置时钟和日期使用的时区。数据不会被改写，只会按你所在时区显示同一时刻。'
@@ -2554,8 +2530,6 @@ settings:
         seg:
             off: '关闭'
             on: '启用'
-            'off': "关闭"
-            'on': "开启"
         subheading: 'plMail 会在本地通过固定规则识别邮件中的包裹、航班、票务和 GitHub 活动等信息，不使用云端模型。关闭某类信息后，不会再生成该来源的新卡片。'
     integrations:
         ask_admin: '管理员尚未启用此服务。'
@@ -2845,8 +2819,6 @@ settings:
         on: '启用'
         show: '显示快捷键'
         subheading: '用单个按键快速完成常用操作。'
-        'off': "关闭"
-        'on': "开启"
     signature:
         for_alias: '%alias% 的签名'
         heading: '签名'
