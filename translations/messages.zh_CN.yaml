@@ -1,4 +1,21 @@
 # 简体中文翻译。尚未覆盖的条目会按 Symfony 的回退规则显示英文。
+mail_preset_group:
+    dach: 德国及周边地区
+    hosting: 托管服务商
+    international: 国际服务商
+
+mail_preset_note:
+    gmx: '请先在 GMX 网页端的“设置”中启用 IMAP。'
+    web_de: '请先在 WEB.DE 网页端启用 IMAP。'
+    t_online: '需要单独设置电子邮件密码，不能使用 Telekom 登录密码。'
+    hetzner: '用户名应填写完整的电子邮件地址。'
+    domainfactory: '这是共用邮件池服务器；用户名应填写完整的电子邮件地址。'
+    gmail: '需要使用应用专用密码；建议改用 OAuth 选项卡登录。'
+    outlook: 'Microsoft 已在大多数租户中禁用基本身份验证，请使用 OAuth 选项卡。'
+    icloud: '需要使用应用专用密码。'
+    app_password: '需要使用应用专用密码。'
+    protonmail_bridge: '仅支持连接运行在同一主机上的 Proton Mail Bridge。'
+
 account:
     add_title: 添加邮箱账户
     added: 邮箱账户添加成功
