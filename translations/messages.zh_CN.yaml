@@ -144,3 +144,611 @@ mail_notification:
     saved: 邮件通知设置已保存。
     none_enabled: 尚未启用或完整配置任何通知渠道，请先保存设置。
     test_result: '测试通知结果：%results%'
+
+all_mail:
+    empty: '除垃圾邮件和回收站外，没有其他邮件。'
+
+alias:
+    added: '邮箱地址已添加。'
+    catch_all_added: '全域接收域名已添加。'
+    catch_all_duplicate: '此账户已将该域名设置为全域接收域名。'
+    catch_all_invalid: '这似乎不是有效的域名，请输入类似 example.com 的域名。'
+    catch_all_removed: '全域接收域名已移除。'
+    catch_all_unsupported: 'Gmail 和 Outlook 只能使用服务商已登记的发件地址，因此此账户不能使用全域接收域名。'
+    deleted: '邮箱地址已移除。'
+    duplicate: '此账户已添加该邮箱地址。'
+    invalid: '这似乎不是有效的邮箱地址。'
+    name_cleared: '发件人名称已清除，此地址将恢复使用账户名称。'
+    name_set: '发件人名称已保存。'
+    primary_set: '主要邮箱地址已更新。'
+    refreshed: '已从服务商刷新。'
+    status_blocked: '不能停用主要地址，请先设置其他主要地址。'
+    status_set: '邮箱地址已更新。'
+
+attachment:
+    sign:
+        action: '签名'
+        draw: '请绘制签名，然后将其放置在页面上。'
+        clear: '重新绘制'
+        cancel: '取消'
+        place: '放置到页面'
+        hint: '拖动签名到合适的位置，然后将文件附加到回复中。'
+        download: '下载已签名副本'
+        reply: '附上已签名副本并回复'
+        protected: '此 PDF 受保护，无法在此处签名，但仍可阅读。'
+        unreadable: '此 PDF 无法在此处编辑，但仍可阅读。'
+        use_saved: '使用已保存的签名'
+    preview:
+        download: '下载'
+        failed: '无法打开此 PDF，但仍可下载。'
+        loading: '正在打开…'
+        untitled: '附件'
+        zoom_in: '放大'
+        zoom_out: '缩小'
+
+clipboard:
+    copied: '已复制'
+    copy_failed: '复制失败'
+
+discarded:
+    actions:
+        purge: '永久删除'
+        purge_confirm: '永久删除此会话？删除后无法恢复，并且也会从邮件服务器中删除。'
+        restore: '移回收件箱'
+
+drafts:
+    empty: '没有草稿。'
+    heading: '草稿'
+
+errors:
+    page:
+        back: '返回邮件'
+        not_found:
+            body: '找不到你访问的页面。链接可能输入有误，或者目标页面已移动或删除。'
+            heading: '此地址没有页面'
+            title: '页面不存在'
+        server:
+            body: '服务器端发生了错误，并非你的操作有误。错误已记录，请稍后重试。'
+            heading: '发生错误'
+            title: '服务器错误'
+
+form:
+    file:
+        choose: '选择图片…'
+        hint: 'PNG、JPEG、GIF 或 WebP'
+    select:
+        no_results: '没有匹配项'
+    cancel: '取消'
+    submit: '保存'
+
+confirm_dialog:
+    heading: '确定要继续吗？'
+    cancel: '取消'
+    confirm: '继续'
+
+header:
+    search:
+        close: '关闭搜索'
+        live:
+            status: '找到 %count% 个匹配会话'
+            status_none: '没有匹配的邮件'
+            status_one: '找到 1 个匹配会话'
+            title: '邮件'
+        open: '搜索邮件'
+        placeholder: '搜索邮件…'
+        recents:
+            clear: '清除'
+            title: '最近搜索'
+        suggestions:
+            title: '建议'
+    user_menu:
+        account_attention: '有 %count% 项账户问题需要处理'
+        admin: '管理'
+        label: '%email% 的用户菜单'
+        profile: '个人资料'
+        rerun_setup: '重新运行设置'
+        unseen_logs:
+            danger: '日志中有 %count% 条新错误'
+            warn: '日志中有 %count% 条新警告'
+        settings: '设置'
+        sign_out: '退出登录'
+        signed_in_as: '当前登录账户'
+
+insights:
+    card:
+        heading: '在此会话中发现'
+    kind:
+        flight: '航班'
+        github-issue: 'GitHub 问题'
+        github-pr: 'GitHub 拉取请求'
+        invoice: '发票'
+        otp: '登录验证码'
+        parcel: '包裹'
+        subscription: '订阅'
+        ticket: '工单'
+    pane:
+        dismiss: '关闭'
+        dismiss_all: '隐藏此栏'
+        heading: '即将发生'
+        more: '更多操作'
+        when:
+            today: '今天'
+            tomorrow: '明天'
+    panel:
+        dismiss: '关闭'
+        heading: '值得关注'
+        open_mail: '打开邮件'
+        track: '跟踪'
+        undated_heading: '还发现了'
+    report:
+        already_reported: '你已经报告过这封邮件。'
+        cancel: '取消'
+        disclosure: '你正在报告 plMail 未能识别的内容，以便今后改进识别。邮件正文和发件人信息会发送给管理员。'
+        heading: '报告未识别的内容'
+        note_label: '你认为 plMail 应该识别出什么？'
+        note_placeholder: '例如：这是一张 3 日到期的发票。'
+        submit: '报告邮件'
+        success: '谢谢，报告已发送给管理员。'
+    status:
+        announced: '已公布'
+        delivered: '已送达'
+        in_transit: '运输途中'
+        ordered: '已下单'
+        out_for_delivery: '派送中'
+        ready_for_pickup: '可领取'
+
+list:
+    sort:
+        newest: '最新优先'
+        oldest: '最早优先'
+
+message:
+    actions:
+        archive: '归档'
+        delete: '删除此邮件'
+        collapse: '收起此邮件'
+        expand: '展开此邮件'
+        mark_unread: '标记为未读'
+        more: '更多'
+        print: '打印'
+        report_insight: '报告未识别的内容'
+        show_original: '查看原始邮件'
+        star: '加星标'
+        unstar: '取消星标'
+    attachments: '附件'
+    back: '返回'
+    body_frame: '邮件正文'
+    bounce:
+        failed: '邮件未能送达。'
+        failed_for: '未能送达给 %recipient%。'
+        reported_at: '报告时间：%datetime%'
+    details:
+        categorised:
+            ai: '语言模型判定，原因是没有规则识别：'
+            ai_differs: '规则判断与模型不同'
+            awaiting_resort: '等待重新分类：你更改了邮件排序方式，此邮件尚未移动。'
+            own_filter: '由你设置的筛选规则归类'
+            gmail_overruled: '未采用：你要求 plMail 自行分类'
+            in_force: '当前生效的规则'
+            ai_no_answer: '已请求模型判断，但没有可用结果'
+            ai_not_asked: '未请求模型判断'
+            correspondent: '你曾给此发件人写过邮件'
+            default: '没有标记表明这是群发邮件'
+            forum: '邮件列表标头：'
+            gmail: 'Gmail 的判断：'
+            pinned: '你手动将邮件移到了这里'
+            promotion: '群发邮件标头：'
+            social: '发件人域名'
+            switched_off: '它本应归为 %category%，但你已关闭此分类'
+            thread_differs: '单独看这封邮件应属于 %category%；整个会话的分类由最新邮件决定。'
+            update: '自动邮件信号：'
+        category: '分类'
+        category_ai: '模型'
+        category_gmail: 'Gmail 判断'
+        category_rules: '规则'
+        bcc: '密送'
+        cc: '抄送'
+        copy_address: '复制地址 %address%'
+        copy_headers: '复制邮件标头'
+        report:
+            failed: '报告失败'
+            label: '分类错误？应为'
+            send: '报告'
+            stale: '已更新，请重新加载'
+            sent: '已报告'
+        date: '日期'
+        from: '发件人'
+        hide_all_headers: '隐藏所有标头'
+        label: '详细信息'
+        mailed_by: '代发服务器'
+        reply_to: '回复地址'
+        show_all_headers: '显示所有标头'
+        signed_by: '签名域'
+        subject: '主题'
+        to: '收件人：%name%'
+        to_label: '收件人'
+        undisclosed: '未公开的收件人'
+    draft: '草稿'
+    images:
+        always: '始终显示来自 %sender% 的图片'
+        blocked: '{1}为保护你的阅读隐私，已屏蔽 1 张图片|]1,Inf[为保护你的阅读隐私，已屏蔽 %count% 张图片'
+        show_once: '显示图片'
+        stop_trusting: '停止自动显示'
+        trusted: '始终显示来自 %sender% 的图片'
+    original:
+        copied: '已复制'
+        copy: '复制到剪贴板'
+        copy_failed: '复制失败'
+        fields:
+            created_at: '创建时间'
+            from: '发件人'
+            message_id: '邮件 ID'
+            subject: '主题'
+            to: '收件人'
+        heading: '原始邮件'
+        reconstructed: '未保留此邮件的原始字节，因此这里是根据已存储的标头和正文重建的内容。MIME 结构和 HTML 部分均已缺失，且无法通过 DKIM 签名验证。'
+    quote:
+        hide: '隐藏引用内容'
+        show: '显示引用内容'
+    read_receipt:
+        dismiss: '不用了'
+        mdn:
+            body: '你发送给 %recipient%、主题为“%subject%”的邮件已于 %date% 显示。此回执不保证收件人已阅读或理解邮件。'
+            subject: '已读：%subject%'
+        mismatch: '回执原本要求发送给 %notifyTo%，但这不是此邮件的发件地址（%sender%）。'
+        read_at: '阅读时间：%datetime%'
+        requested: '%sender% 请求在你阅读邮件后收到通知。'
+        send: '发送回执'
+    save_to: '保存到'
+    security:
+        mismatch:
+            brand_in_name: '显示名称包含“%claimed%”，但邮件实际来自 %actual%。'
+            domain_in_name: '显示名称声称来自 %claimed%，但邮件实际来自 %actual%。'
+            title: '发件人名称与邮箱地址不匹配'
+        spam:
+            body: '此邮件已被归为垃圾邮件。邮件中的链接和图片可能有风险，请谨慎对待其中的要求。'
+            title: '此邮件位于垃圾邮件中'
+
+search:
+    empty:
+        or_keyword: '或者直接输入关键词。'
+        title: '搜索邮件'
+        try: '试试'
+    heading:
+        results: '搜索结果：'
+    no_results:
+        hint: '请尝试更换关键词或移除部分筛选条件。'
+        title: '没有找到“%query%”的结果'
+    pill:
+        after: '晚于'
+        attachment: '有附件'
+        before: '早于'
+        cc: '抄送'
+        from: '发件人'
+        has: '包含'
+        in: '位置'
+        is: '状态'
+        label: '标签'
+        read: '已读'
+        starred: '星标'
+        subject: '主题'
+        to: '收件人'
+        unread: '未读'
+    results:
+        count: '%count% 个结果'
+        count_one: '1 个结果'
+    semantic:
+        admin_link: '索引进度'
+        indexing: '正在对 %total% 封邮件中的 %embedded% 封进行语义索引，已完成 %percent%%。'
+        model_changed: '搜索模型已更改。之前模型索引的 %count% 封邮件，在重新建立索引前不会参与语义搜索。'
+        nothing_extra: '语义搜索没有找到关键词搜索之外的结果。'
+        skipped:
+            bad_answer: '模型返回了无法使用的结果，因此本次仅按关键词搜索。'
+            host_unreachable: '模型服务未响应，因此本次仅按关键词搜索。'
+            model_missing: '模型服务中没有配置搜索模型，因此本次仅按关键词搜索。'
+            not_configured: '已启用语义搜索，但尚未配置模型服务，因此本次仅按关键词搜索。'
+            query_too_short: '请再输入一些内容，以便同时进行语义搜索。'
+            search_failed: '语义搜索未能完成，因此本次仅按关键词搜索。管理员可以查看服务器日志了解原因。'
+            search_too_slow: '语义搜索耗时过长，因此本次仅按关键词搜索。'
+            timed_out: '模型响应超时，因此本次仅按关键词搜索。'
+    sort:
+        label: '排序方式'
+        recent: '最新'
+        relevance: '相关度最高'
+    title: '搜索'
+    title_query: '搜索：%query%'
+
+sent:
+    empty: '没有已发送的邮件。'
+    heading: '已发送'
+
+session:
+    expired:
+        heading: '你已退出登录'
+        body: '你的会话已在其他位置结束，请重新登录后继续。'
+        body_writing: '你的会话已在其他位置结束。请在新标签页重新登录，然后返回此页面；当前写好的内容仍会保留。'
+        sign_in: '重新登录'
+        sign_in_new_tab: '在新标签页登录'
+        reload: '重新加载此页面'
+
+shortcuts:
+    groups:
+        actions: '邮件操作'
+        actions_hint: '优先作用于已选内容；否则作用于打开的会话；再否则作用于高亮的列表项。'
+        anywhere: '任意位置'
+        conversation: '会话内'
+        list: '列表中'
+    keys:
+        archive: '归档'
+        back: '返回列表'
+        compose: '写新邮件'
+        delete: '删除'
+        forward: '转发'
+        go_archive: '打开归档'
+        go_drafts: '打开草稿'
+        go_inbox: '打开收件箱'
+        go_sent: '打开已发送'
+        go_starred: '打开星标邮件'
+        help: '显示此快捷键列表'
+        label: '添加标签'
+        mark_read: '标记为已读'
+        mark_unread: '标记为未读'
+        move: '移动到'
+        next: '下一个会话'
+        next_conversation: '打开下一个会话'
+        open: '打开高亮的会话'
+        previous: '上一个会话'
+        previous_conversation: '打开上一个会话'
+        reply: '回复'
+        reply_all: '回复全部'
+        search: '搜索'
+        select: '选中高亮的会话'
+        select_all: '选择本页全部内容'
+        select_none: '清除选择'
+        select_read: '选择已读邮件'
+        select_starred: '选择星标邮件'
+        select_unread: '选择未读邮件'
+        snooze: '稍后提醒'
+        spam: '标记为垃圾邮件'
+        star: '添加或取消星标'
+        undo: '撤销上一步操作'
+    or: '或'
+    switched_off: '你已关闭快捷键。可在“设置 → 常规”中重新启用。'
+    then: '然后'
+    title: '键盘快捷键'
+
+sidebar:
+    accounts:
+        add: '添加账户'
+        heading: '账户'
+        none: '尚未添加账户'
+        colour: '为账户 %account% 标记颜色'
+        colour_disabled: '账户 %account% 的颜色标记已关闭'
+        open: '打开 %account%'
+        toggle: '显示或隐藏 %account% 的文件夹'
+    badge:
+        total: '共 %count% 封'
+        unread: '%count% 封未读'
+        unsent: '有一封草稿发送失败'
+    compose: '写邮件'
+    labels:
+        add: '创建标签'
+        heading: '标签'
+        none: '尚无标签'
+    new_mail_here: '%where% 有新邮件'
+    new_mail_here_count: '%where% 有 %count% 封新邮件'
+    nav:
+        all_mail: '所有邮件'
+        archive: '归档'
+        calendar: '日历'
+        drafts: '草稿'
+        inbox: '收件箱'
+        more: '更多'
+        sent: '已发送'
+        snoozed: '稍后处理'
+        spam: '垃圾邮件'
+        starred: '星标'
+        trash: '回收站'
+        unread: '未读'
+    toggle: '显示或隐藏侧边栏'
+
+snooze:
+    later_today: '今天晚些时候'
+    next_week: '下周'
+    pick_date: '选择日期和时间'
+    this_weekend: '本周末'
+    tomorrow: '明天'
+    unsnooze: '取消稍后提醒'
+
+snoozed:
+    empty: '没有稍后提醒的邮件。'
+
+starred:
+    empty: '没有星标邮件。'
+    heading: '星标邮件'
+
+tabs:
+    forums: '论坛'
+    new_count: '%count% 封新邮件'
+    primary: '主要'
+    promotions: '推广'
+    social: '社交'
+    updates: '动态'
+
+thread:
+    no_subject: '（无主题）'
+    summary:
+        button: '总结此会话'
+        disclaimer: '此摘要由模型根据下方邮件生成。重要内容请自行阅读原文。'
+        error:
+            connection_lost: '生成摘要时与 plMail 的连接中断。模型服务并未参与此次故障，可能是浏览器与服务器之间的连接被关闭。'
+            disabled: '会话摘要功能已关闭。'
+            generic: '无法生成摘要。'
+            model_missing: '模型服务中没有配置写作模型，请管理员先下载该模型。'
+            no_answer: '模型没有返回结果。'
+            refused: '模型服务拒绝了请求。如果会话内容完整，这台设备可能无法一次处理这么多内容。'
+            timeout: '模型响应超时。'
+            unreachable: '无法连接模型服务。'
+        generated: '生成时间：%when%'
+        heading: '摘要'
+        regenerate: '重新生成摘要'
+        partial: '此会话过长，无法完整发送给模型，因此摘要仅根据部分内容生成。'
+        send_full: '改为总结整个会话（速度较慢，对模型服务的要求也更高）。'
+        stale: '生成摘要后，此会话已有变化。'
+        state:
+            sent: '已发送给模型…'
+            stopped: '已停止，未保存任何内容。'
+            waiting: '模型加载并读取会话后才能处理，长时间未使用后的首次请求可能需要约一分钟。'
+            queued: '已加入队列，正在后台总结整个会话。你可以关闭此窗口，稍后再回来查看结果。'
+            reading: '仍在读取会话，已用时 %elapsed%。读取完成后，摘要将逐字显示。'
+            waiting_full: '正在读取整个会话。长会话可能需要几分钟，读取完成前不会显示结果。'
+            working: '正在总结…'
+        stop: '停止'
+        too_short: '只有一封邮件，没有足够内容可供总结。'
+
+thread_row:
+    account: '接收账户：%account%'
+    actions:
+        archive: '归档'
+        cancel_schedule: '取消定时发送'
+        delete: '删除'
+        mark_read: '标记为已读'
+        mark_unread: '标记为未读'
+        snooze: '稍后提醒'
+    answer: '此邮件收到新回复'
+    answer_badge: '回复'
+    has_attachment: '包含附件'
+    me: '我'
+    meaning: '按语义匹配，而非按输入的文字匹配'
+    meaning_badge: '语义'
+    message_count: '（{ count }）'
+    new: '你之前尚未查看'
+    new_badge: '新'
+    no_recipient: '（无收件人）'
+    no_subject: '（无主题）'
+    send_failed:
+        failed: '发送失败'
+        may_have_sent: '可能已发送：请先检查“已发送”，再决定是否重发'
+        rate_limited: '发送失败：邮件服务商限制了发送频率'
+        refused: '发送失败：邮件服务器拒绝了请求'
+        unavailable: '发送失败：无法连接邮件服务商'
+    scheduled: '计划于 %when% 发送'
+    select: '选择'
+    star: '为此邮件添加星标'
+    to: '收件人：%recipients%'
+    unread: '未读'
+    unstar: '取消此邮件的星标'
+
+toast:
+    archived: '会话已归档。'
+    categorised: '已移动到“%category%”'
+    dismiss: '关闭'
+    labelled: '已添加标签“%label%”'
+    moved: '已移动到“%folder%”'
+    schedule_cancelled: '已取消定时发送。'
+    send_too_late: '操作太晚了，这封邮件已经发送。'
+    send_failed: '无法发送邮件：%subject%'
+    send_failed_may_have_sent: '%subject% 可能已发送，但未收到服务器确认。请先检查“已发送”，再决定是否重发。'
+    send_failed_rate_limited: '无法发送邮件“%subject%”。邮件服务商当前限制发送频率，请几分钟后重试。'
+    send_failed_refused: '无法发送邮件“%subject%”：邮件服务器拒绝了请求。'
+    send_failed_unavailable: '无法发送邮件“%subject%”：无法连接邮件服务商。'
+    sent: '邮件已发送。'
+    spam_filtered: '已移至垃圾邮件。今后来自 %sender% 的邮件也会移到这里。'
+    undo: '撤销'
+    undo_expired: '此操作已无法撤销。'
+    undone: '已撤销。'
+    unlabelled: '已移除标签“%label%”'
+
+toolbar:
+    view_select:
+        offer: '可以选择此视图中的全部 %count% 个会话。'
+        offer_action: '选择全部 %count% 个'
+        selected: '已选择此视图中的全部 %count% 个会话。'
+        clear: '仅选择本页'
+    actions:
+        archive: '归档'
+        delete: '删除'
+        label: '添加标签'
+        mark_read: '标记为已读'
+        mark_unread: '标记为未读'
+        more: '更多'
+        move_to: '移动到'
+        purge: '永久删除'
+        snooze: '稍后提醒'
+        spam: '标记为垃圾邮件'
+        star: '加星标'
+    purge_confirm:
+        one: '永久删除此会话？删除后无法恢复，并且也会从邮件服务器中删除。'
+        many: '永久删除这 %count% 个会话？删除后无法恢复，并且也会从邮件服务器中删除。'
+    filter:
+        show_all: '显示全部'
+        unread_only: '仅显示未读'
+    pagination:
+        next: '更早'
+        of: '/'
+        prev: '更新'
+    select:
+        all: '全部'
+        none: '无'
+        read: '已读'
+        starred: '星标'
+        unread: '未读'
+        whole_view: '此视图中的全部 %count% 个'
+    select_all: '选择所有会话'
+    select_menu: '更多选择选项'
+
+spam:
+    empty: '没有垃圾邮件。'
+    heading: '垃圾邮件'
+
+spam_menu:
+    confirm_body: '%domain% 下所有地址发来的邮件都会进入垃圾邮件，包括从未给你写过信的人。'
+    confirm_cancel: '取消'
+    confirm_shared: '这是一个很多人都在使用的邮件服务商。'
+    confirm_yes: '过滤整个域名'
+    domain: '始终将此域名下的邮件移至垃圾邮件'
+    filter_heading: '同时过滤今后的邮件'
+    heading: '标记为垃圾邮件'
+    more: '更多选项'
+    move: '移至垃圾邮件'
+    move_hint: '仅处理此会话。'
+    sender: '始终将此发件人移至垃圾邮件'
+
+trash:
+    empty: '没有已删除的邮件。'
+    heading: '回收站'
+
+two_factor:
+    cancel: '以其他账户登录'
+    flash:
+        code_rejected: '验证码不正确，请检查验证器应用后重试。'
+        codes_regenerated: '已生成新的恢复代码，旧代码已失效。'
+        device_revoked: '下次使用此设备登录时，需要重新输入验证码。'
+        devices_revoked: '已清除所有受信任设备。'
+        disabled: '双重验证已关闭。'
+        enabled: '双重验证已启用。'
+    form:
+        code: '验证码'
+        code_hint: '请输入验证器应用生成的六位验证码，或输入一条恢复代码。'
+        submit: '继续'
+        submitting: '正在验证…'
+        trust_device: '此设备不再询问'
+        trust_device_hint: '有效期为 30 天。你可以随时在“设置 → 安全”中撤销信任。'
+    page_title: '双重验证'
+    recovery_hint: '如果手机丢失，请使用设置双重验证时保存的恢复代码。'
+    tagline: '还差一步'
+
+unread:
+    empty: '没有未读邮件。'
+    heading: '所有未读邮件'
+
+templates:
+    variable:
+        date: '日期'
+        recipient_email: '收件人邮箱地址'
+        recipient_first_name: '收件人名字'
+        recipient_name: '收件人全名'
+        sender_email: '你的邮箱地址'
+        sender_name: '你的姓名'
+        signature: '签名'
+
