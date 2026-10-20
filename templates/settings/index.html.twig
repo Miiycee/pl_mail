@@ -622,6 +622,17 @@
                                             {% endblock %}
                                         {% endembed %}
 
+                                        {% embed 'settings/_card.html.twig' with {
+                                            heading: '邮件到达通知',
+                                            subheading: '配置新邮件的 Webhook 与 Telegram 推送',
+                                        } %}
+                                            {% block body %}
+                                                {% include 'settings/_mail_notifications.html.twig' with {
+                                                    mailNotification: mailNotification,
+                                                } %}
+                                            {% endblock %}
+                                        {% endembed %}
+
                                     {% elseif section == 'app-passwords' %}
                                         <div class="space-y-4">
                                             {% embed 'settings/_card.html.twig' with {

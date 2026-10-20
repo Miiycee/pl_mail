@@ -178,6 +178,7 @@ final class SettingsController extends AbstractController
             ...$this->calendarSectionData($section),
             ...$this->sharingSectionData($section),
             ...$this->notificationsSectionData($section),
+            ...$this->mailNotificationSectionData($section),
             'aliasForms'         => $this->aliasAddForms->forAccounts($manageableAccounts),
             'vapidPublicKey'     => $this->vapidPublicKey,
             'locales'            => AppLocale::cases(),
@@ -306,6 +307,36 @@ final class SettingsController extends AbstractController
      *
      * @return array<string, mixed>
      */
+    /**
+     * Per-user outbound mail-notification settings, and only on that pane.
+     *
+     * Never pass the stored Telegram token to Twig. The form only needs to
+     * know whether one is on file; a blank password field means keep it.
+     *
+     * @return array<string, mixed>
+     */
+    private function mailNotificationSectionData(string $section): array
+    {
+        $user = $this->getUser();
+
+        if ('notifications' !== $section || false === $user instanceof User) {
+            return [];
+        }
+
+        $token = (string) $user->getSetting('mail_notification.telegram_token', '');
+
+        return [
+            'mailNotification' => [
+                'enabled'            => true === $user->getSetting('mail_notification.enabled', false),
+                'webhook_enabled'    => true === $user->getSetting('mail_notification.webhook_enabled', false),
+                'webhook_url'        => (string) $user->getSetting('mail_notification.webhook_url', ''),
+                'telegram_enabled'   => true === $user->getSetting('mail_notification.telegram_enabled', false),
+                'telegram_chat_id'   => (string) $user->getSetting('mail_notification.telegram_chat_id', ''),
+                'telegram_token_set' => '' !== $token,
+            ],
+        ];
+    }
+
     private function notificationsSectionData(string $section): array
     {
         $user = $this->getUser();

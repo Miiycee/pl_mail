@@ -104,3 +104,21 @@ settings:
     security: 安全
     appearance: 外观
     language: 语言
+
+    notifications:
+        heading: 浏览器与邮件通知
+        subheading: 管理此设备的浏览器推送，以及新邮件的外部通知渠道
+        this_device: 此设备
+        state_on: 已启用
+        state_off: 已关闭
+        state_pending: 正在检查…
+        state_working: 正在处理…
+        state_denied: 浏览器通知权限已拒绝
+        state_error: 通知状态异常
+        state_unsupported: 此浏览器不支持推送
+        state_unconfigured: 尚未配置推送服务
+        state_unknown: 状态未知
+        toggle: 启用通知
+        toggle_off: 关闭通知
+        unconfigured: 尚未配置 VAPID 公钥
+        ios_hint: iPhone 和 iPad 通常需要先将网站添加到主屏幕，再启用推送。
