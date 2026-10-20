@@ -49,7 +49,7 @@ final class MailNotificationController extends AbstractController
 
         $user->setSetting('mail_notification.enabled', '1' === (string) $request->request->get('enabled'));
         $user->setSetting('mail_notification.webhook_enabled', '1' === (string) $request->request->get('webhook_enabled'));
-        $user->setSetting('mail_notification.webhook_url', $webhookUrl);
+        $user->setSetting('mail_notification.webhook_url', '' !== $webhookUrl ? $encryptor->encrypt($webhookUrl) : '');
         $user->setSetting('mail_notification.telegram_enabled', '1' === (string) $request->request->get('telegram_enabled'));
         $user->setSetting('mail_notification.telegram_chat_id', trim((string) $request->request->get('telegram_chat_id', '')));
 

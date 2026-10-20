@@ -80,10 +80,13 @@ final readonly class MailNotificationSender
     {
         $results = [];
         $webhookEnabled = true === $user->getSetting('mail_notification.webhook_enabled', false);
-        $webhookUrl = trim((string) $user->getSetting('mail_notification.webhook_url', ''));
+        $storedWebhookUrl = trim((string) $user->getSetting('mail_notification.webhook_url', ''));
 
-        if ($webhookEnabled && '' !== $webhookUrl) {
+        if ($webhookEnabled && '' !== $storedWebhookUrl) {
             try {
+                $webhookUrl = $this->encryptor->isEncrypted($storedWebhookUrl)
+                    ? $this->encryptor->decrypt($storedWebhookUrl)
+                    : $storedWebhookUrl;
                 $response = $this->webhookClient->request('POST', $webhookUrl, [
                     'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json'],
                     'json' => $event,

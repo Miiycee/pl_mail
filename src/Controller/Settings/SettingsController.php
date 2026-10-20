@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Settings;
 
 use App\Domain\Enum\AppLocale;
+use App\Infrastructure\Encryption\Encryptor;
 use App\Domain\Enum\User\ClockFormat;
 use App\Domain\Enum\User\ClockPlacement;
 use App\Entity\Ai\AiFeature;
@@ -113,7 +114,7 @@ final class SettingsController extends AbstractController
     }
 
     #[Route('', name: 'index')]
-    public function index(Request $request): Response
+    public function index(Request $request, Encryptor $encryptor): Response
     {
         // Profile, because it is the first entry in the navigation and opening
         // a settings page anywhere other than its top reads as though something
@@ -178,7 +179,7 @@ final class SettingsController extends AbstractController
             ...$this->calendarSectionData($section),
             ...$this->sharingSectionData($section),
             ...$this->notificationsSectionData($section),
-            ...$this->mailNotificationSectionData($section),
+            ...$this->mailNotificationSectionData($section, $encryptor),
             'aliasForms'         => $this->aliasAddForms->forAccounts($manageableAccounts),
             'vapidPublicKey'     => $this->vapidPublicKey,
             'locales'            => AppLocale::cases(),
@@ -329,7 +330,7 @@ final class SettingsController extends AbstractController
      *
      * @return array<string, mixed>
      */
-    private function mailNotificationSectionData(string $section): array
+    private function mailNotificationSectionData(string $section, Encryptor $encryptor): array
     {
         $user = $this->getUser();
 
@@ -338,12 +339,20 @@ final class SettingsController extends AbstractController
         }
 
         $token = (string) $user->getSetting('mail_notification.telegram_token', '');
+        $storedWebhookUrl = (string) $user->getSetting('mail_notification.webhook_url', '');
+        try {
+            $webhookUrl = '' === $storedWebhookUrl ? '' : ($encryptor->isEncrypted($storedWebhookUrl)
+                ? $encryptor->decrypt($storedWebhookUrl)
+                : $storedWebhookUrl);
+        } catch (\Throwable) {
+            $webhookUrl = '';
+        }
 
         return [
             'mailNotification' => [
                 'enabled'            => true === $user->getSetting('mail_notification.enabled', false),
                 'webhook_enabled'    => true === $user->getSetting('mail_notification.webhook_enabled', false),
-                'webhook_url'        => (string) $user->getSetting('mail_notification.webhook_url', ''),
+                'webhook_url'        => $webhookUrl,
                 'telegram_enabled'   => true === $user->getSetting('mail_notification.telegram_enabled', false),
                 'telegram_chat_id'   => (string) $user->getSetting('mail_notification.telegram_chat_id', ''),
                 'telegram_token_set' => '' !== $token,
