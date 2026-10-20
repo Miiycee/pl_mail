@@ -14,6 +14,23 @@
                     <span class="text-xl font-semibold text-ink">{{ 'app.name'|trans }}</span>
                 </div>
                 <p class="text-sm text-ink-muted">{{ 'login.tagline'|trans }}</p>
+                <nav aria-label="Language"
+                     class="flex items-center justify-center gap-2 mt-3 text-xs text-ink-faint">
+                    <a href="{{ app.request.pathInfo }}?locale=zh_CN"
+                       class="hover:text-ink {{ app.request.locale == 'zh_CN' ? 'font-semibold text-ink' : '' }}">简体中文</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ app.request.pathInfo }}?locale=en"
+                       class="hover:text-ink {{ app.request.locale == 'en' ? 'font-semibold text-ink' : '' }}">English</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ app.request.pathInfo }}?locale=de"
+                       class="hover:text-ink {{ app.request.locale == 'de' ? 'font-semibold text-ink' : '' }}">Deutsch</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ app.request.pathInfo }}?locale=fr"
+                       class="hover:text-ink {{ app.request.locale == 'fr' ? 'font-semibold text-ink' : '' }}">Français</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ app.request.pathInfo }}?locale=en_PI"
+                       class="hover:text-ink {{ app.request.locale == 'en_PI' ? 'font-semibold text-ink' : '' }}">Pirate English</a>
+                </nav>
             </div>
 
             {# Error #}
