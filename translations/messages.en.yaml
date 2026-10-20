@@ -1,3 +1,20 @@
+mail_preset_group:
+    dach: Germany / DACH
+    hosting: Hosting providers
+    international: International providers
+
+mail_preset_note:
+    gmx: 'Enable IMAP first in the GMX web interface under Settings.'
+    web_de: 'Enable IMAP first in the WEB.DE web interface.'
+    t_online: 'A separate email password is required, not your Telekom login password.'
+    hetzner: 'Use your full email address as the username.'
+    domainfactory: 'Shared mail-pool host; use your full email address as the username.'
+    gmail: 'Requires an app password; the OAuth tab is recommended instead.'
+    outlook: 'Microsoft has disabled basic authentication for most tenants — use the OAuth tab.'
+    icloud: 'Requires an app-specific password.'
+    app_password: 'Requires an app password.'
+    protonmail_bridge: 'Only works with Proton Mail Bridge running on the same host.'
+
 account:
     add_title: Add account
     added: Account added successfully
