@@ -7,6 +7,7 @@ namespace App\Service\Mail;
 use App\Domain\DTO\MailPreset;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Reads the shipped provider presets. Deliberately file-backed rather than
@@ -21,6 +22,7 @@ final class MailPresetProvider
     public function __construct(
         #[Autowire('%kernel.project_dir%/config/mail_presets.yaml')]
         private readonly string $presetFile,
+        private readonly TranslatorInterface $translator,
     ) {
     }
 
@@ -80,7 +82,13 @@ final class MailPresetProvider
         $choices = [];
 
         foreach ($this->all() as $preset) {
-            $choices[$preset->group][$preset->name] = $preset->key;
+            $groupKey = match ($preset->group) {
+                'Deutschland' => 'mail_preset_group.dach',
+                'Hosting' => 'mail_preset_group.hosting',
+                'International' => 'mail_preset_group.international',
+                default => $preset->group,
+            };
+            $choices[$this->translator->trans($groupKey)][$preset->name] = $preset->key;
         }
 
         ksort($choices);
@@ -96,7 +104,13 @@ final class MailPresetProvider
         $payload = [];
 
         foreach ($this->all() as $preset) {
-            $payload[$preset->key] = $preset->toClientArray();
+            $row = $preset->toClientArray();
+
+            if (is_string($row['note'] ?? null) && '' !== $row['note']) {
+                $row['note'] = $this->translator->trans($row['note']);
+            }
+
+            $payload[$preset->key] = $row;
         }
 
         return $payload;
