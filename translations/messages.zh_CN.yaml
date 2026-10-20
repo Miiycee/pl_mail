@@ -1426,6 +1426,7 @@ compose:
 inbox:
     heading: 收件箱
     empty: 暂无邮件
+    empty_account: 此账户尚未收到邮件。
 
 
 login:
@@ -1572,6 +1573,9 @@ settings:
         name_for: '%alias% 的发件人名称'
         name_placeholder: '发件人名称'
         name_save: '保存名称'
+        ms_sender_hint: 'Outlook 无论此处选择哪个地址，都会使用账户的主要别名发送。请前往'
+        ms_sender_hint_link: 'Microsoft 账户设置'
+        system: '系统'
         catch_all:
             add: '设为全域接收'
             label: '全域接收域名'
