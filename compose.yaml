@@ -139,6 +139,7 @@ services:
 
   ntfy:
     image: binwiederhier/ntfy
+    platform: linux/amd64
     profiles: [push]
     restart: unless-stopped
     command: serve
