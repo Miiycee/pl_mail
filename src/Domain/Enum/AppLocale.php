@@ -16,6 +16,7 @@ enum AppLocale: string
     case German = 'de';
     case French = 'fr';
     case Pirate = 'en_PI';
+    case SimplifiedChinese = 'zh_CN';
 
     /**
      * Name of the language, written in that language.
@@ -27,6 +28,7 @@ enum AppLocale: string
             self::German => 'Deutsch',
             self::French => 'Français',
             self::Pirate => 'Pirate English',
+            self::SimplifiedChinese => '简体中文',
         };
     }
 
@@ -40,6 +42,7 @@ enum AppLocale: string
             self::German => '🇩🇪',
             self::French => '🇫🇷',
             self::Pirate => '🏴‍☠️',
+            self::SimplifiedChinese => '🇨🇳',
         };
     }
 

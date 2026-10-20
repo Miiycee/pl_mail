@@ -1,0 +1,106 @@
+# 简体中文翻译。尚未覆盖的条目会按 Symfony 的回退规则显示英文。
+account:
+    add_title: 添加邮箱账户
+    added: 邮箱账户添加成功
+    colour_set: 账户颜色已更改
+    disabled: 账户已停用
+    enabled: 账户已启用
+    form:
+        email: 邮箱地址
+        encryption: 加密方式
+        imap:
+            heading: 收件服务器 — IMAP
+            host: 主机地址
+        password: 密码
+        port: 端口
+        preset:
+            label: 邮箱服务商
+            placeholder: 选择服务商…
+        smtp:
+            heading: 发件服务器 — SMTP
+            host: 主机地址
+            password: 发件密码
+            same: 发件时使用相同密码
+            separate: 发件时使用其他密码
+        username: 用户名
+    oauth:
+        calendar_declined: 账户已连接，但未授予日历访问权限，因此不会同步日历。请重新连接，并在 Google 授权页面勾选日历权限。
+        google: 使用 Google 继续
+        info: 使用邮箱服务商登录 — 不会保存密码。
+        microsoft: 使用 Microsoft 继续
+    primary_set: 默认账户已更改
+    removed: 账户已移除
+    tabs:
+        imap: IMAP / SMTP
+        oauth: OAuth
+    test:
+        button: 测试连接
+        imap: IMAP
+        smtp: SMTP
+    updated: 账户已更新
+
+app:
+    cancel: 取消
+    close: 关闭
+    delete: 删除
+    edit: 编辑
+    save: 保存
+    saving: 正在保存…
+    settings: 设置
+
+admin:
+    accounts:
+        account: 账户
+        heading: 账户管理
+        last_activity: 最近活动
+        messages: 邮件数
+        threads: 会话数
+    address:
+        field:
+            public_url: 公网访问地址
+        heading: 公网访问地址
+        save: 保存地址
+        saved: 已保存 — 重启后生效。
+    ai:
+        heading: 语言模型
+        field:
+            enabled: 使用语言模型
+            search: 语义搜索
+            summary: 会话摘要
+            writing_help: 写作助手
+
+calendar:
+    heading: 日历
+    today: 今天
+    tomorrow: 明天
+
+compose:
+    send: 发送
+    sending: 正在发送…
+    subject: 主题
+    to: 收件人
+
+inbox:
+    heading: 收件箱
+    empty: 暂无邮件
+
+login:
+    email: 邮箱地址
+    password: 密码
+    sign_in: 登录
+
+nav:
+    inbox: 收件箱
+    sent: 已发送
+    drafts: 草稿
+    spam: 垃圾邮件
+    trash: 已删除
+    settings: 设置
+
+settings:
+    heading: 设置
+    account: 账户
+    mail_accounts: 邮箱账户
+    security: 安全
+    appearance: 外观
+    language: 语言

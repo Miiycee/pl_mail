@@ -1,0 +1,12 @@
+account.deactivated: 你的账户已被管理员停用。请联系管理员重新启用；你的数据并未删除。
+account.removed: 此账户已被移除，无法用于登录。
+oidc.unavailable: 单点登录暂时不可用。请使用密码登录，或联系管理员检查日志。
+oidc.denied: 登录服务提供方拒绝了本次 plMail 登录。
+oidc.failed: 无法完成第三方登录，请重试。
+oidc.no_email: 登录服务提供方未向 plMail 提供邮箱地址，因此无法确定要登录的账户。
+oidc.email_unverified: 登录服务提供方尚未验证你的邮箱，plMail 不会将其关联到账户。请联系管理员。
+oidc.ambiguous: 此邮箱对应多个账户，请联系管理员处理。
+oidc.no_account: 目前没有使用此邮箱的 plMail 账户，请联系管理员创建账户。
+oidc.linked_elsewhere: 此邮箱对应的账户已关联到其他第三方登录身份，请联系管理员。
+oidc.unavailable_sso_only: 单点登录暂时不可用，请稍后重试，或联系管理员检查日志。
+login.password_disabled: 此实例已关闭密码登录，请使用单点登录。
