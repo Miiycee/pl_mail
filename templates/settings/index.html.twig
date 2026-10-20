@@ -623,8 +623,8 @@
                                         {% endembed %}
 
                                         {% embed 'settings/_card.html.twig' with {
-                                            heading: '邮件到达通知',
-                                            subheading: '配置新邮件的 Webhook 与 Telegram 推送',
+                                            heading: 'mail_notification.card_heading'|trans,
+                                            subheading: 'mail_notification.card_subheading'|trans,
                                         } %}
                                             {% block body %}
                                                 {% include 'settings/_mail_notifications.html.twig' with {

@@ -4549,3 +4549,5 @@ mail_notification:
     saved: Mail notification settings saved.
     none_enabled: No notification channel is enabled or fully configured. Save your settings first.
     test_result: 'Test notification results: %results%'
+    card_heading: Mail arrival notifications
+    card_subheading: Configure Webhook and Telegram delivery for new mail

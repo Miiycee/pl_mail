@@ -27,7 +27,7 @@
             <label class="block text-sm text-ink">{{ 'mail_notification.telegram_chat_id'|trans }}
                 <input class="mt-1 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-sm" type="text" name="telegram_chat_id" value="{{ mailNotification.telegram_chat_id }}" placeholder="{{ 'mail_notification.telegram_chat_id_placeholder'|trans }}">
             </label>
-            <p class="text-xs text-ink-muted">{{ 'mail_notification.telegram_token'|trans }} 使用应用加密密钥加密后保存。更换 APP_ENCRYPTION_KEY 会导致已保存的令牌无法解密。</p>
+            <p class="text-xs text-ink-muted">{{ 'mail_notification.telegram_help'|trans }}</p>
         </div>
         <div class="flex flex-wrap gap-2">
             <button class="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink" type="submit">{{ 'mail_notification.save'|trans }}</button>

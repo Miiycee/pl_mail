@@ -124,6 +124,8 @@ settings:
         ios_hint: iPhone 和 iPad 通常需要先将网站添加到主屏幕，再启用推送。
 
 mail_notification:
+    card_heading: 邮件到达通知
+    card_subheading: 配置新邮件的 Webhook 与 Telegram 推送
     intro: 新邮件通知与浏览器推送分开配置。Webhook 可发送到 Message Nest，或通过 Telegram Bot API 直接推送。正文摘要最多 500 个字符。
     enabled: 启用新邮件通知
     webhook_enabled: 启用 Webhook（Message Nest）
