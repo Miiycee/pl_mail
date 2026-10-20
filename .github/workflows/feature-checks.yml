@@ -43,3 +43,6 @@ jobs:
 
       - name: Validate Docker Compose configuration
         run: docker compose config --quiet
+
+      - name: Build the linux/amd64 application image
+        run: docker compose build
