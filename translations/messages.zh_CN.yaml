@@ -662,6 +662,9 @@ admin:
             off:
                 name: '关闭'
                 hint: '不检查更新，也不会发送通知。'
+            'off':
+                name: "关闭"
+                hint: "不进行检查，也不会向任何地方发送数据。"
         state:
             available: '有可用更新'
             current: '已是最新版本'
@@ -669,6 +672,7 @@ admin:
             incomparable: '无法比较'
             off: '已关闭'
             unknown: '尚未检查'
+            'off': "已关闭"
         running: '当前安装'
         newest:
             releases: '最新正式版本'
@@ -855,6 +859,8 @@ admin:
             environment: '已启用，来自环境变量'
             off: '已关闭'
             on: '已启用'
+            'off': "已关闭"
+            'on': "已启用"
     tokens:
         empty: '尚无令牌刷新记录。'
         heading: 'OAuth 令牌健康状态'
@@ -1021,6 +1027,47 @@ admin:
         unrecoverable:
             heading: "此操作无法撤销"
             lead: "以下操作都无法通过重新同步恢复：它们会删除用户、已保存的邮箱密码以及磁盘上的文件。请输入实例名称进行确认，单击按钮本身并不足以确认。"
+    failed:
+        delete: "删除"
+        delete_confirm: "确定永久删除这条失败的消息吗？"
+        empty: "失败消息队列为空。🎉"
+        heading: "发送失败的消息"
+        purge: "清空全部"
+        purge_confirm: "确定永久删除所有失败的消息吗？删除后将无法重试。"
+        retry: "重试"
+        retry_all: "全部重试"
+        retry_all_confirm: "确定重新分发所有失败的消息吗？"
+    maintenance:
+        heading: "维护"
+        heartbeats_help: "清理未正常退出的进程遗留的记录。"
+        heartbeats_prune: "清理过期心跳"
+        heartbeats_title: "过期心跳"
+        restart: "重启工作进程"
+        restart_app: "立即重启"
+        restart_app_help: "结束当前提供此页面的进程，由 compose 重新创建容器。轮换生成的密钥后需要执行此操作：入口脚本会将密钥导出为环境变量，而内核只在工作进程模式下启动一次，因此运行中的 Web 容器不会自动读取新值。停机约两秒，页面会自动恢复。"
+        restart_app_title: "重启 Web 容器"
+        restart_confirm: "确定重启工作进程、调度器和 IMAP 监督进程吗？正在执行的任务会先完成。"
+        restart_help: "停止工作进程、调度器和 IMAP 监督进程，让它们重新启动。长时间运行的进程会在整个生命周期内缓存数据库映射，因此数据库迁移后需要重启。"
+        restart_pending: "已在 %seconds% 秒前请求重启；进程会先完成当前任务，然后在一两分钟内重新出现。"
+        restart_title: "重启长时间运行的进程"
+        run_help: "任务会排入队列等待工作进程执行，不会在此页面直接运行。这些任务与调度器自动执行的定期清理任务相同。"
+        run_title: "立即运行维护任务"
+        task:
+            mail_sync: "同步邮件"
+            monitoring_prune: "清理监控数据"
+            prune_blobs: "清理文件数据"
+            push_renew: "续订推送订阅"
+    restarting:
+        back: "返回管理面板"
+        continue: "继续"
+        heading: "plMail 正在重启"
+        lead: "已请求 Web 容器退出，compose 会立即将其重新启动。此页面会在几秒后自动刷新。"
+        page_title: "正在重启"
+        unavailable_heading: "未执行重启"
+        unavailable_lead: "当前进程不是容器的主进程，因此无法结束容器。请改为执行以下命令："
+    tables:
+        heading: "数据表大小"
+    loading: "正在加载…"
 calendar:
     when:
         previous_month: '上个月'
@@ -1112,6 +1159,13 @@ calendar:
             '5': '周五'
             '6': '周六'
             '7': '周日'
+            1: "周一"
+            2: "周二"
+            3: "周三"
+            4: "周四"
+            5: "周五"
+            6: "周六"
+            7: "周日"
         your_email: '你的邮箱'
         your_email_help: '确认邮件和日历文件将发送到此地址。'
         your_name: '你的姓名'
@@ -1821,6 +1875,7 @@ settings:
                 brand: 'plMail 名称下方'
                 sidebar: '侧边栏底部'
                 off: '不显示'
+                'off': "不显示"
     appearance:
         heading: '外观'
         subheading: '在此统一调整主题、密度、字体和背景。'
@@ -2274,6 +2329,8 @@ settings:
         off: '关闭'
         on: '启用'
         subheading: '设置如何彻底删除邮件。'
+        'off': "关闭"
+        'on': "开启"
     images:
         always_show: '始终显示远程图片'
         always_show_hint: '无需询问，直接加载所有邮件中的外部图片。发件人可能因此知道你何时打开邮件，但看不到你的 IP 地址，因为图片仍通过 plMail 加载。垃圾邮件中的图片始终会被阻止。默认关闭。'
@@ -2281,6 +2338,8 @@ settings:
         off: '关闭'
         on: '启用'
         subheading: '控制是否需要先确认才能加载邮件中的外部图片。'
+        'off': "关闭"
+        'on': "开启"
     whats_new:
         heading: '更新内容'
         off: '关闭'
@@ -2288,6 +2347,8 @@ settings:
         show: '更新后显示更新内容'
         show_hint: '关闭后，更新完成时不会自动打开更新说明，顶部栏的问号图标也不会显示提示点。仍可从“帮助 → 更新内容”查看。'
         subheading: '设置 plMail 更新后显示的内容。'
+        'off': "关闭"
+        'on': "开启"
     categories:
         add: '添加'
         built_in: '内置'
@@ -2321,6 +2382,8 @@ settings:
             label: '每个账户单独显示标签页'
             off: '关闭'
             on: '启用'
+            'off': "关闭"
+            'on': "开启"
         again:
             button: '重新判断'
             hint: '助手会为每封邮件保留一次判断结果。模型、提示词或 plMail 版本变化后可重新判断。每封邮件都会消耗一次模型调用，因此仅处理最近的邮件。'
@@ -2346,6 +2409,8 @@ settings:
             label: '收件箱标签页'
             off: '单一列表'
             on: '标签页'
+            'off': "单一列表"
+            'on': "标签页"
     timezone:
         heading: '时区'
         subheading: '设置时钟和日期使用的时区。数据不会被改写，只会按你所在时区显示同一时刻。'
@@ -2493,6 +2558,8 @@ settings:
         seg:
             off: '关闭'
             on: '启用'
+            'off': "关闭"
+            'on': "开启"
         subheading: 'plMail 会在本地通过固定规则识别邮件中的包裹、航班、票务和 GitHub 活动等信息，不使用云端模型。关闭某类信息后，不会再生成该来源的新卡片。'
     integrations:
         ask_admin: '管理员尚未启用此服务。'
@@ -2782,6 +2849,8 @@ settings:
         on: '启用'
         show: '显示快捷键'
         subheading: '用单个按键快速完成常用操作。'
+        'off': "关闭"
+        'on': "开启"
     signature:
         for_alias: '%alias% 的签名'
         heading: '签名'
