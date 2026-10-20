@@ -9,6 +9,7 @@ use App\Entity\User\User;
 use App\Infrastructure\Encryption\Encryptor;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\String\UnicodeString;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
@@ -51,8 +52,9 @@ final readonly class MailNotificationSender
             $body = trim(strip_tags($message->bodyHtmlSafe));
         }
         $snippet = preg_replace('/\s+/u', ' ', $body) ?? $body;
-        if (mb_strlen($snippet) > 500) {
-            $snippet = mb_substr($snippet, 0, 497) . '…';
+        $unicodeSnippet = new UnicodeString($snippet);
+        if ($unicodeSnippet->length() > 500) {
+            $snippet = $unicodeSnippet->slice(0, 497)->append('…')->toString();
         }
 
         return $this->deliver($user, [
