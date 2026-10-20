@@ -62,8 +62,18 @@ final class UserLocaleSubscriber implements EventSubscriberInterface
             $locale = AppLocale::tryFromRequest($stored);
 
             if (null === $locale) {
-                $preferred = $request->getPreferredLanguage(AppLocale::values());
-                $locale = AppLocale::tryFromRequest($preferred);
+                // HTTP language tags use hyphens (zh-CN), while Symfony's
+                // translation catalogue names use underscores (zh_CN).
+                // Negotiate with HTTP-style tags, then convert the result back
+                // to the catalogue locale.
+                $httpLocales = array_map(
+                    static fn (string $value): string => str_replace('_', '-', $value),
+                    AppLocale::values(),
+                );
+                $preferred = $request->getPreferredLanguage($httpLocales);
+                $locale = AppLocale::tryFromRequest(
+                    null === $preferred ? null : str_replace('-', '_', $preferred),
+                );
             }
         }
 
