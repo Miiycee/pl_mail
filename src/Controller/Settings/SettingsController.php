@@ -307,6 +307,20 @@ final class SettingsController extends AbstractController
      *
      * @return array<string, mixed>
      */
+    private function notificationsSectionData(string $section): array
+    {
+        $user = $this->getUser();
+
+        if ('notifications' !== $section || false === $user instanceof User) {
+            return [];
+        }
+
+        return [
+            'pushDevices'    => $this->pushSubscriptions->findForUser($user),
+            'lastDeliveries' => $this->pushDeliveries->lastDeliveryPerDevice((int) $user->id),
+        ];
+    }
+
     /**
      * Per-user outbound mail-notification settings, and only on that pane.
      *
@@ -334,20 +348,6 @@ final class SettingsController extends AbstractController
                 'telegram_chat_id'   => (string) $user->getSetting('mail_notification.telegram_chat_id', ''),
                 'telegram_token_set' => '' !== $token,
             ],
-        ];
-    }
-
-    private function notificationsSectionData(string $section): array
-    {
-        $user = $this->getUser();
-
-        if ('notifications' !== $section || false === $user instanceof User) {
-            return [];
-        }
-
-        return [
-            'pushDevices'    => $this->pushSubscriptions->findForUser($user),
-            'lastDeliveries' => $this->pushDeliveries->lastDeliveryPerDevice((int) $user->id),
         ];
     }
 
