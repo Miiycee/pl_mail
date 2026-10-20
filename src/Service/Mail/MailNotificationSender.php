@@ -33,7 +33,8 @@ final readonly class MailNotificationSender
     public function sendTest(User $user): array
     {
         $sample = [
-            'event' => 'plmail.test',
+            'event' => 'mail.received',
+            'test' => true,
             'account' => (string) ($user->email ?? 'plMail'),
             'from' => 'plMail 测试通知 <noreply@example.invalid>',
             'subject' => '这是一条测试通知',
