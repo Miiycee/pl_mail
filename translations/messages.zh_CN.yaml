@@ -870,7 +870,7 @@ admin:
     client_errors:
         browser: "浏览器"
         clear: "清除"
-        clear_confirm: "确定删除符合当前筛选条件的全部 %count% 条浏览器错误记录吗？如果问题仍然存在，记录还会再次出现。"
+        clear_confirm: "确定删除所有浏览器错误记录吗？如果问题仍然存在，记录还会再次出现。"
         count: "{0}没有记录|{1}1 个错误|]1,Inf[ %count% 个错误"
         empty: "没有浏览器错误。"
         empty_hint: "plMail 自身脚本产生的未捕获错误会按故障分组显示在这里。浏览器扩展产生的错误会被过滤掉，因为浏览器报告的大多数错误并非来自本应用。"
@@ -2892,12 +2892,12 @@ mail_notification:
     webhook_url: Webhook 地址
     webhook_help: 发送 JSON 字段 event、account、account_id、message_id、from、from_address、from_name、subject、received_at 和 snippet。若使用内网地址，管理员需将主机名加入 INTEGRATIONS_ALLOWED_HOSTS 白名单。
     telegram_enabled: 启用 Telegram
-    telegram_token: Bot Token
+    telegram_token: 机器人令牌
     telegram_token_saved: 令牌已保存；留空表示保持不变
     telegram_token_placeholder: '123456:ABC…'
-    telegram_chat_id: Chat ID
+    telegram_chat_id: 聊天 ID
     telegram_chat_id_placeholder: '例如 123456789'
-    telegram_help: Bot Token 会使用应用加密密钥加密后保存。更换 APP_ENCRYPTION_KEY 后，已保存的令牌将无法解密。
+    telegram_help: 机器人令牌会使用应用加密密钥加密后保存。更换 APP_ENCRYPTION_KEY 后，已保存的令牌将无法解密。
     save: 保存通知设置
     test: 发送测试通知
     invalid_url: '设置未保存：Webhook 必须是有效的 HTTP 或 HTTPS 地址，且不能包含用户名或密码。'
