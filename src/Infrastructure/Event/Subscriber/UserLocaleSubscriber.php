@@ -52,14 +52,16 @@ final class UserLocaleSubscriber implements EventSubscriberInterface
         if ($user instanceof User) {
             $locale = AppLocale::tryFromRequest($user->locale);
         } else {
-            // Logged-out pages (especially /login) have no user preference.
-            // Keep the last chosen locale when available; on a fresh visit,
-            // use the browser's preferred language instead of always showing
-            // the English default.
-            [, $stored] = AppearanceCookieSubscriber::read(
-                $request->cookies->get(AppearanceCookieSubscriber::COOKIE),
-            );
-            $locale = AppLocale::tryFromRequest($stored);
+            // An explicit language link on the login page wins, then the last
+            // chosen language, then the browser preference.
+            $locale = AppLocale::tryFromRequest($request->query->get('locale'));
+
+            if (null === $locale) {
+                [, $stored] = AppearanceCookieSubscriber::read(
+                    $request->cookies->get(AppearanceCookieSubscriber::COOKIE),
+                );
+                $locale = AppLocale::tryFromRequest($stored);
+            }
 
             if (null === $locale) {
                 // HTTP language tags use hyphens (zh-CN), while Symfony's
