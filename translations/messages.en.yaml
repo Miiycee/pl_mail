@@ -4528,3 +4528,24 @@ whats_new:
     screenshot_close: 'Close the screenshot'
     screenshot_open: 'Open the screenshot full size'
     title: 'What''s new'
+
+
+mail_notification:
+    intro: New-mail alerts are separate from browser push. Send a webhook to Message Nest or deliver directly through the Telegram Bot API. The message snippet is limited to 500 characters.
+    enabled: Enable new-mail notifications
+    webhook_enabled: Enable Webhook (Message Nest)
+    webhook_url: Webhook URL
+    webhook_help: Sends JSON fields event, account, account_id, message_id, from, from_address, from_name, subject, received_at and snippet. A private-network destination must be allow-listed by the administrator in INTEGRATIONS_ALLOWED_HOSTS.
+    telegram_enabled: Enable Telegram
+    telegram_token: Bot Token
+    telegram_token_saved: Token saved; leave blank to keep the current token
+    telegram_token_placeholder: '123456:ABC…'
+    telegram_chat_id: Chat ID
+    telegram_chat_id_placeholder: 'For example, 123456789'
+    telegram_help: The Bot Token is encrypted with the application key before storage. Changing APP_ENCRYPTION_KEY makes saved tokens unreadable.
+    save: Save notification settings
+    test: Send test notification
+    invalid_url: 'Settings not saved: the webhook must be a valid HTTP or HTTPS URL without a username or password.'
+    saved: Mail notification settings saved.
+    none_enabled: No notification channel is enabled or fully configured. Save your settings first.
+    test_result: 'Test notification results: %results%'

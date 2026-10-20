@@ -122,3 +122,23 @@ settings:
         toggle_off: 关闭通知
         unconfigured: 尚未配置 VAPID 公钥
         ios_hint: iPhone 和 iPad 通常需要先将网站添加到主屏幕，再启用推送。
+
+mail_notification:
+    intro: 新邮件通知与浏览器推送分开配置。Webhook 可发送到 Message Nest，或通过 Telegram Bot API 直接推送。正文摘要最多 500 个字符。
+    enabled: 启用新邮件通知
+    webhook_enabled: 启用 Webhook（Message Nest）
+    webhook_url: Webhook 地址
+    webhook_help: 发送 JSON 字段 event、account、account_id、message_id、from、from_address、from_name、subject、received_at 和 snippet。若使用内网地址，管理员需将主机名加入 INTEGRATIONS_ALLOWED_HOSTS 白名单。
+    telegram_enabled: 启用 Telegram
+    telegram_token: Bot Token
+    telegram_token_saved: 令牌已保存；留空表示保持不变
+    telegram_token_placeholder: '123456:ABC…'
+    telegram_chat_id: Chat ID
+    telegram_chat_id_placeholder: '例如 123456789'
+    telegram_help: Bot Token 会使用应用加密密钥加密后保存。更换 APP_ENCRYPTION_KEY 后，已保存的令牌将无法解密。
+    save: 保存通知设置
+    test: 发送测试通知
+    invalid_url: '设置未保存：Webhook 必须是有效的 HTTP 或 HTTPS 地址，且不能包含用户名或密码。'
+    saved: 邮件通知设置已保存。
+    none_enabled: 尚未启用或完整配置任何通知渠道，请先保存设置。
+    test_result: '测试通知结果：%results%'

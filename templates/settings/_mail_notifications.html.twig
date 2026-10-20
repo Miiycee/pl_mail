@@ -1,40 +1,40 @@
 <div class="px-4 py-4 space-y-4">
-    <p class="text-sm text-ink-muted">新邮件通知与浏览器推送分开配置。Webhook 可用于连接 Message Nest；Telegram 直接通过 Bot API 发送。正文摘要最多 500 个字符。</p>
+    <p class="text-sm text-ink-muted">{{ 'mail_notification.intro'|trans }}</p>
     <form method="post" action="{{ path('app_settings_mail_notifications_save') }}" class="space-y-4">
         <input type="hidden" name="_token" value="{{ csrf_token('mail_notification_settings') }}">
         <label class="flex items-center gap-2 text-sm text-ink">
             <input type="checkbox" name="enabled" value="1" {% if mailNotification.enabled %}checked{% endif %}>
-            启用新邮件通知
+            {{ 'mail_notification.enabled'|trans }}
         </label>
         <div class="rounded-xl border border-line p-3 space-y-3">
             <label class="flex items-center gap-2 text-sm text-ink">
                 <input type="checkbox" name="webhook_enabled" value="1" {% if mailNotification.webhook_enabled %}checked{% endif %}>
-                启用 Webhook（Message Nest）
+                {{ 'mail_notification.webhook_enabled'|trans }}
             </label>
-            <label class="block text-sm text-ink">Webhook URL
+            <label class="block text-sm text-ink">{{ 'mail_notification.webhook_url'|trans }}
                 <input class="mt-1 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-sm" type="url" name="webhook_url" value="{{ mailNotification.webhook_url }}" placeholder="https://message-nest.example/webhook">
             </label>
-            <p class="text-xs text-ink-muted">发送 JSON：event、account、account_id、message_id、from、from_address、from_name、subject、received_at、snippet。私有网络地址需由管理员加入 INTEGRATIONS_ALLOWED_HOSTS 白名单。</p>
+            <p class="text-xs text-ink-muted">{{ 'mail_notification.webhook_help'|trans }}</p>
         </div>
         <div class="rounded-xl border border-line p-3 space-y-3">
             <label class="flex items-center gap-2 text-sm text-ink">
                 <input type="checkbox" name="telegram_enabled" value="1" {% if mailNotification.telegram_enabled %}checked{% endif %}>
-                启用 Telegram
+                {{ 'mail_notification.telegram_enabled'|trans }}
             </label>
-            <label class="block text-sm text-ink">Bot Token
-                <input class="mt-1 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-sm" type="password" name="telegram_token" autocomplete="new-password" placeholder="{% if mailNotification.telegram_token_set %}已保存，留空表示不修改{% else %}123456:ABC…{% endif %}">
+            <label class="block text-sm text-ink">{{ 'mail_notification.telegram_token'|trans }}
+                <input class="mt-1 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-sm" type="password" name="telegram_token" autocomplete="new-password" placeholder="{% if mailNotification.telegram_token_set %}{{ 'mail_notification.telegram_token_saved'|trans }}{% else %}123456:ABC…{% endif %}">
             </label>
-            <label class="block text-sm text-ink">Chat ID
-                <input class="mt-1 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-sm" type="text" name="telegram_chat_id" value="{{ mailNotification.telegram_chat_id }}" placeholder="例如 123456789">
+            <label class="block text-sm text-ink">{{ 'mail_notification.telegram_chat_id'|trans }}
+                <input class="mt-1 w-full rounded-lg border border-line bg-canvas px-3 py-2 text-sm" type="text" name="telegram_chat_id" value="{{ mailNotification.telegram_chat_id }}" placeholder="{{ 'mail_notification.telegram_chat_id_placeholder'|trans }}">
             </label>
-            <p class="text-xs text-ink-muted">Bot Token 使用应用加密密钥加密后保存。更换 APP_ENCRYPTION_KEY 会导致已保存的令牌无法解密。</p>
+            <p class="text-xs text-ink-muted">{{ 'mail_notification.telegram_token'|trans }} 使用应用加密密钥加密后保存。更换 APP_ENCRYPTION_KEY 会导致已保存的令牌无法解密。</p>
         </div>
         <div class="flex flex-wrap gap-2">
-            <button class="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink" type="submit">保存通知设置</button>
+            <button class="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-ink" type="submit">{{ 'mail_notification.save'|trans }}</button>
         </div>
     </form>
     <form method="post" action="{{ path('app_settings_mail_notifications_test') }}">
         <input type="hidden" name="_token" value="{{ csrf_token('mail_notification_settings') }}">
-        <button class="inline-flex items-center rounded-lg border border-line px-4 py-2 text-sm font-medium text-ink" type="submit">发送测试通知</button>
+        <button class="inline-flex items-center rounded-lg border border-line px-4 py-2 text-sm font-medium text-ink" type="submit">{{ 'mail_notification.test'|trans }}</button>
     </form>
 </div>

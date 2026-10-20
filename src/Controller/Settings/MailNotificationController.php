@@ -37,7 +37,7 @@ final class MailNotificationController extends AbstractController
             if (false === $parts || !isset($parts['scheme'], $parts['host'])
                 || !in_array(strtolower((string) $parts['scheme']), ['http', 'https'], true)
                 || isset($parts['user']) || isset($parts['pass'])) {
-                $this->addFlash('error', '通知设置未保存：Webhook 地址必须是有效的 HTTP 或 HTTPS URL，且不能包含用户名或密码。');
+                $this->addFlash('error', $this->trans('mail_notification.invalid_url'));
                 return $this->redirectToRoute('app_settings_index', ['section' => 'notifications']);
             }
         }
@@ -54,7 +54,7 @@ final class MailNotificationController extends AbstractController
         $user->setSetting('mail_notification.telegram_chat_id', trim((string) $request->request->get('telegram_chat_id', '')));
 
         $em->flush();
-        $this->addFlash('success', '邮件通知设置已保存。');
+        $this->addFlash('success', $this->trans('mail_notification.saved'));
 
         return $this->redirectToRoute('app_settings_index', ['section' => 'notifications']);
     }
@@ -70,13 +70,13 @@ final class MailNotificationController extends AbstractController
 
         $results = $sender->sendTest($user);
         if ([] === $results) {
-            $this->addFlash('error', '未启用任何通知渠道，或尚未填写完整配置。请先保存设置。');
+            $this->addFlash('error', $this->trans('mail_notification.none_enabled'));
         } else {
             $failed = in_array('failed', $results, true) || in_array('not_configured', $results, true);
-            $this->addFlash($failed ? 'error' : 'success', '测试通知结果：' . implode('；', array_map(
+            $this->addFlash($failed ? 'error' : 'success', $this->trans('mail_notification.test_result', ['%results%' => implode('；', array_map(
                 static fn (string $channel, string $result): string => $channel . ' = ' . $result,
                 array_keys($results), array_values($results),
-            )));
+            ))]));
         }
 
         return $this->redirectToRoute('app_settings_index', ['section' => 'notifications']);
